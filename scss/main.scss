@@ -1,0 +1,21 @@
+@use "./config" as *;
+@use "./colors" as *;
+
+.all{
+    width: 95%;
+    height: 95%;
+    margin: 0 auto;
+    height: 600px;
+    background: #000;
+    .sideBar{
+        aside
+        {
+        width: 300px;
+        background-image: url("../assets/images/bg-sidebar-desktop.svg");
+        height: 550px;
+        background-repeat: no-repeat;
+        background-size:contain;
+        background-size: 100%;
+        }
+    }
+}
