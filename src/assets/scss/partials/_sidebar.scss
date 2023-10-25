@@ -12,7 +12,7 @@
     li {
       .list {
         display: flex;
-        
+
         flex-direction: row;
         gap: 1em;
         .number {
@@ -22,37 +22,62 @@
           height: 35px;
           border-radius: 100%;
           border: 1px solid $White;
-          &.active{
+          &.active {
             background: $Lightblue;
             border: none;
-           
           }
-          h2{
+          h2 {
             color: $White;
             font-family: 'ubuntu-regular';
-            &.active{
+            &.active {
               color: $Marineblue;
-
-            }          }
+            }
+          }
         }
         .listInfo {
-            display: flex;
-            flex-direction: column;
-            p{
-                text-transform: uppercase;
-                font-family: 'ubuntu-regular';
-                font-size: .8em;
-                color: $Coolgray;
-            }
-            h1{
-                text-transform: uppercase;
-                font-family: "ubuntu-bold";
-                color: $Alabaster;
-                letter-spacing: .5px;
-                font-size: .9em;
-            }
+          display: flex;
+          flex-direction: column;
+          p {
+            text-transform: uppercase;
+            font-family: 'ubuntu-regular';
+            font-size: 0.8em;
+            color: $Coolgray;
+          }
+          h1 {
+            text-transform: uppercase;
+            font-family: 'ubuntu-bold';
+            color: $Alabaster;
+            letter-spacing: 0.5px;
+            font-size: 0.9em;
+          }
         }
       }
     }
+  }
+}
+.inputs {
+  display: flex;
+  flex-direction: column;
+}
+.btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  button {
+    font-family: 'ubuntu-medium';
+    text-transform: capitalize;
+    cursor: pointer;
+  }
+  .back {
+    background: transparent;
+    color: $Coolgray;
+  }
+  .next {
+    background: $Marineblue;
+    padding: 1em 1.7em;
+    border-radius: 10px;
+    color: $Alabaster;
+    font-size: 1.1em;
   }
 }

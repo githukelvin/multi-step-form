@@ -3,7 +3,7 @@
     <ul>
       <li>
         <div class="list">
-          <div class="number ">
+          <div class="number">
             <h2 class="">1</h2>
           </div>
           <div class="listInfo">

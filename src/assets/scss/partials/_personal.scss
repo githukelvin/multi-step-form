@@ -1,4 +1,18 @@
 .main {
+  display: flex;
+  flex-direction: row;
+}
+.combined{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    label{
+
+    }
+    .message {
+        .info {
+            color: red;
+        }
+    }
+
 }
