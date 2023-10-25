@@ -1,0 +1,49 @@
+@use '../utils/font' as *;
+@use '../utils/colors' as *;
+
+.sidebar {
+  background-image: url('../images/bg-sidebar-desktop.svg');
+  border-radius: 10px;
+  padding: 2em 5em 18.3em 2em;
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    li {
+      .list {
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+        .number {
+          display: grid;
+          place-items: center;
+          width: 35px;
+          height: 35px;
+          border-radius: 100%;
+          border: 1px solid $White;
+          h2{
+            color: $White;
+            font-family: 'ubuntu-regular';
+          }
+        }
+        .listInfo {
+            display: flex;
+            flex-direction: column;
+            p{
+                text-transform: uppercase;
+                font-family: 'ubuntu-regular';
+                font-size: .8em;
+                color: $Coolgray;
+            }
+            h1{
+                text-transform: uppercase;
+                font-family: "ubuntu-bold";
+                color: $Alabaster;
+                letter-spacing: .5px;
+                font-size: .9em;
+            }
+        }
+      }
+    }
+  }
+}
