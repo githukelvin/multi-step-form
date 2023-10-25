@@ -12,6 +12,7 @@
     li {
       .list {
         display: flex;
+        
         flex-direction: row;
         gap: 1em;
         .number {
@@ -21,10 +22,18 @@
           height: 35px;
           border-radius: 100%;
           border: 1px solid $White;
+          &.active{
+            background: $Lightblue;
+            border: none;
+           
+          }
           h2{
             color: $White;
             font-family: 'ubuntu-regular';
-          }
+            &.active{
+              color: $Marineblue;
+
+            }          }
         }
         .listInfo {
             display: flex;

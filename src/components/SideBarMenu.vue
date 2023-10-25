@@ -3,8 +3,8 @@
     <ul>
       <li>
         <div class="list">
-          <div class="number">
-            <h2>1</h2>
+          <div class="number ">
+            <h2 class="">1</h2>
           </div>
           <div class="listInfo">
             <p>step 1</p>
