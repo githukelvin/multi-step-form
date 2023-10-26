@@ -3,9 +3,7 @@
     <ul>
       <li>
         <div class="list first">
-          <div class="number" :class="{ 'active': isRouteActive('info').value }" >
-            <h2 >1</h2>
-          </div>
+          <div class="number" :class="{ active: isRouteActive('info').value }">1</div>
           <div class="listInfo">
             <p>step 1</p>
             <h1>your info</h1>
@@ -13,10 +11,8 @@
         </div>
       </li>
       <li>
-        <div class="list  mod">
-          <div class="number " :class="{ 'active': isRouteActive('plan').value }">
-            <h2>2</h2>
-          </div>
+        <div class="list mod">
+          <div class="number" :class="{ active: isRouteActive('plan').value }">2</div>
           <div class="listInfo">
             <p>step 2</p>
             <h1>select plan</h1>
@@ -24,11 +20,9 @@
         </div>
       </li>
       <li>
-        <div class="list  mod">
-          <div class="number" :class="{ 'active': isRouteActive('add-ons').value }">
-            <h2>3</h2>
-          </div>
-          <div class="listInfo" >
+        <div class="list mod">
+          <div class="number" :class="{ active: isRouteActive('add-ons').value }">3</div>
+          <div class="listInfo">
             <p>step 3</p>
             <h1>add-ons</h1>
           </div>
@@ -36,9 +30,7 @@
       </li>
       <li>
         <div class="list mod">
-          <div class="number" :class="{ 'active': isRouteActive('summary').value }">
-            <h2>4</h2>
-          </div>
+          <div class="number" :class="{ active: isRouteActive('summary').value }">4</div>
           <div class="listInfo">
             <p>step 4</p>
             <h1>summary</h1>
@@ -50,15 +42,15 @@
 </template>
 
 <script setup>
-import {computed} from 'vue'
-import {useRoute} from 'vue-router'
-const route = useRoute(); // Get the current route
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+const route = useRoute() // Get the current route
 
 const isRouteActive = (routeName) => {
   return computed(() => {
-    return route.name === routeName; // Check if the path matches the route name
-  });
-};
+    return route.name === routeName // Check if the path matches the route name
+  })
+}
 console.log(isRouteActive('info').value)
 </script>
 

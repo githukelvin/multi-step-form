@@ -4,13 +4,12 @@
 .sidebar {
   background-image: url('../images/bg-sidebar-desktop.svg');
   border-radius: 10px;
-  padding:2em 5.8em 18em 1.9em;
+  padding: 2em 5.8em 18em 1.9em;
   ul {
     display: flex;
     flex-direction: column;
     gap: 1.89em;
-    li{
-
+    li {
       .list {
         display: flex;
         flex-direction: row;
@@ -22,17 +21,13 @@
           height: 33px;
           border-radius: 100%;
           border: 1px solid $White;
+          color: $White;
+          font-family: 'ubuntu-bold';
+          font-size: 1.1em;
           &.active {
             background: $Lightblue;
             border: none;
-          }
-          h2 {
-            color: $White;
-            font-family: 'ubuntu-regular';
-            font-size: .8em;
-            &.active {
-              color: $Marineblue;
-            }
+            color: $Marineblue;
           }
         }
         .listInfo {
@@ -49,7 +44,7 @@
             font-family: 'ubuntu-bold';
             color: $Alabaster;
             letter-spacing: 0.5px;
-            padding-top:5px;
+            padding-top: 5px;
             font-size: 0.9em;
           }
         }

@@ -1,71 +1,70 @@
-@use "../utils/colors" as *;
-@use "../utils/font"  as *;
+@use '../utils/colors' as *;
+@use '../utils/font' as *;
 
 .main {
   display: flex;
   flex-direction: row;
-//   gap: 6em;
+  //   gap: 6em;
 }
-.form{
-    width: 100%;
-    margin-top:1.5625em;
-    padding-inline:5.3em;
+.form {
+  width: 100%;
+  margin-top: 1.5625em;
+  padding-inline: 5.3em;
   margin-left: 1em;
   margin-top: 2.2em;
 
-    &__details{
-        margin-bottom: 2.55em;
-        h1{
-            color: $Marineblue;
-            font-family: "ubuntu-bold";
-            font-size:2em;
-            margin-bottom: .5em;
-            line-height: 1;
-        }
-        p{
-            line-height: 1;
-            color: $Coolgray;
-            font-family: 'ubuntu-regular';
-            // line-height:3;
-            font-size: 1.05em;
-        }
-    }
-    &__input{
-        display: flex;
-        flex-direction: column;
-        gap: 1.3em;
-        &--group{
-            display: flex;
-            flex-direction: column;
-            .input-field{
-                background: $White;
-                border: 1px solid $Lightgray;
-                padding: 1em .8em;
-                border-radius: 10px;
-                width: 97%;
-            }
-        }
-    }
-}
-.combined{
+
+  &__input {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    label{
+    flex-direction: column;
+    gap: 1.3em;
+    &--group {
+      display: flex;
+      flex-direction: column;
+      .input-field {
+        background: $White;
+        border: 1px solid $Lightgray;
+        padding: 1em 0.8em;
+        border-radius: 10px;
+        width: 97%;
         color: $Marineblue;
-        font-family: 'ubuntu-medium';
-        font-size: .9em;
-        text-transform: capitalize;
-        padding-bottom: .5em;
-    }
-    .message {
-        .info {
-            color: $Strawberryred;
+        font-family: "ubuntu-medium";
+        &:hover,
+        &:focus {
+          border: 1px solid $Marineblue;
         }
+        &:invalid{
+            border: 1px solid $Strawberryred;
+        }
+      }
     }
-
-
+  }
 }
-::placeholder{
-    font-family: "ubuntu-medium";
+.combined {
+  display: flex;
+  flex-direction: row;
+  width: 97%;
+
+  justify-content: space-between;
+  label {
+    color: $Marineblue;
+    font-family: 'ubuntu-medium';
+    font-size: 0.9em;
+    text-transform: capitalize;
+    padding-bottom: 0.5em;
+  }
+  .message {
+    .info {
+      font-family: 'ubuntu-medium';
+      //   font-size: 0.9em;
+      color: $Strawberryred;
+    
+    }
+  }
+}
+::placeholder {
+  font-family: 'ubuntu-medium';
+}
+input.error {
+      border: 1px solid $Strawberryred;
 }

@@ -21,9 +21,26 @@ body {
   padding: 1.2em;
   border-radius: 15px;
   margin-top: 30px;
-
 }
-.inputs{
+.inputs {
   display: grid;
-  
 }
+  .form__details {
+    margin-bottom: 2.55em;
+
+    h1 {
+      color: $Marineblue;
+      font-family: 'ubuntu-bold';
+      font-size: 2em;
+      margin-bottom: 0.5em;
+      line-height: 1;
+    }
+
+    p {
+      line-height: 1;
+      color: $Coolgray;
+      font-family: 'ubuntu-regular';
+      // line-height:3;
+      font-size: 1.05em;
+    }
+  }

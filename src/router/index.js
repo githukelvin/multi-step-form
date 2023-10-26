@@ -13,22 +13,20 @@ const router = createRouter({
           name: 'info',
           component: () => import('@/views/PersonalInfo.vue')
         },
-         {
+        {
           path: '/plan',
           name: 'plan',
-          component: () => import('@/views/PersonalInfo.vue')
-        }
-        ,
-         {
+          component: () => import('@/views/PlanPage.vue')
+        },
+        {
           path: '/add-ons',
           name: 'add-ons',
-          component: () => import('@/views/PersonalInfo.vue')
-        }
-        ,
-         {
+          component: () => import('@/views/AddOnpage.vue')
+        },
+        {
           path: '/summary',
           name: 'summary',
-          component: () => import('@/views/PersonalInfo.vue')
+          component: () => import('@/views/SummaryPage.vue')
         }
       ]
     }
