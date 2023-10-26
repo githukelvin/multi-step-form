@@ -4,28 +4,30 @@
 .main {
   display: flex;
   flex-direction: row;
+//   gap: 6em;
 }
 .form{
     width: 100%;
     margin-top:1.5625em;
-    padding-inline: 4em;
-  margin-left: 2em;
-  margin-top: 2.5em;
+    padding-inline:5.3em;
+  margin-left: 1em;
+  margin-top: 2.2em;
 
     &__details{
-        margin-bottom: 1.195em;
+        margin-bottom: 2.55em;
         h1{
             color: $Marineblue;
             font-family: "ubuntu-bold";
             font-size:2em;
+            margin-bottom: .5em;
             line-height: 1;
         }
         p{
             line-height: 1;
             color: $Coolgray;
             font-family: 'ubuntu-regular';
-            line-height:3;
-            font-size: 1.1em;
+            // line-height:3;
+            font-size: 1.05em;
         }
     }
     &__input{
@@ -38,8 +40,9 @@
             .input-field{
                 background: $White;
                 border: 1px solid $Lightgray;
-                padding: 1em .7em;
+                padding: 1em .8em;
                 border-radius: 10px;
+                width: 97%;
             }
         }
     }
@@ -61,4 +64,8 @@
         }
     }
 
+
+}
+::placeholder{
+    font-family: "ubuntu-medium";
 }

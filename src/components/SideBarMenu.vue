@@ -2,9 +2,9 @@
   <div class="sidebar">
     <ul>
       <li>
-        <div class="list">
-          <div class="number">
-            <h2 class="">1</h2>
+        <div class="list first">
+          <div class="number" :class="{ 'active': isRouteActive('info').value }" >
+            <h2 >1</h2>
           </div>
           <div class="listInfo">
             <p>step 1</p>
@@ -13,8 +13,8 @@
         </div>
       </li>
       <li>
-        <div class="list">
-          <div class="number">
+        <div class="list  mod">
+          <div class="number " :class="{ 'active': isRouteActive('plan').value }">
             <h2>2</h2>
           </div>
           <div class="listInfo">
@@ -24,19 +24,19 @@
         </div>
       </li>
       <li>
-        <div class="list">
-          <div class="number">
+        <div class="list  mod">
+          <div class="number" :class="{ 'active': isRouteActive('add-ons').value }">
             <h2>3</h2>
           </div>
-          <div class="listInfo">
+          <div class="listInfo" >
             <p>step 3</p>
             <h1>add-ons</h1>
           </div>
         </div>
       </li>
       <li>
-        <div class="list">
-          <div class="number">
+        <div class="list mod">
+          <div class="number" :class="{ 'active': isRouteActive('summary').value }">
             <h2>4</h2>
           </div>
           <div class="listInfo">
@@ -49,6 +49,17 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import {computed} from 'vue'
+import {useRoute} from 'vue-router'
+const route = useRoute(); // Get the current route
+
+const isRouteActive = (routeName) => {
+  return computed(() => {
+    return route.name === routeName; // Check if the path matches the route name
+  });
+};
+console.log(isRouteActive('info').value)
+</script>
 
 <!-- <style lang="scss" scoped></style> -->

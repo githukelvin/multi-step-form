@@ -28,7 +28,7 @@
         </div>
         <div class="form__input--group">
            <div class="combined">
-                  <label>Email</label>
+                  <label>Email Address</label>
 
                          <div class="message">
                     <div class="info">
@@ -69,7 +69,6 @@
 <script setup>
 import { Form as VForm, ErrorMessage, Field } from 'vee-validate'
 import * as Yup from 'yup'
-
 const schema = Yup.object().shape({
   name: Yup.string()
     .min(2, 'Too Short!')

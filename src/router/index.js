@@ -10,7 +10,24 @@ const router = createRouter({
       children: [
         {
           path: '/',
-          name: 'Personal Info',
+          name: 'info',
+          component: () => import('@/views/PersonalInfo.vue')
+        },
+         {
+          path: '/plan',
+          name: 'plan',
+          component: () => import('@/views/PersonalInfo.vue')
+        }
+        ,
+         {
+          path: '/add-ons',
+          name: 'add-ons',
+          component: () => import('@/views/PersonalInfo.vue')
+        }
+        ,
+         {
+          path: '/summary',
+          name: 'summary',
           component: () => import('@/views/PersonalInfo.vue')
         }
       ]
