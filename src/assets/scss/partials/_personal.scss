@@ -1,17 +1,63 @@
+@use "../utils/colors" as *;
+@use "../utils/font"  as *;
+
 .main {
   display: flex;
   flex-direction: row;
+}
+.form{
+    width: 100%;
+    margin-top:1.5625em;
+    padding-inline: 4em;
+  margin-left: 2em;
+  margin-top: 2.5em;
+
+    &__details{
+        margin-bottom: 1.195em;
+        h1{
+            color: $Marineblue;
+            font-family: "ubuntu-bold";
+            font-size:2em;
+            line-height: 1;
+        }
+        p{
+            line-height: 1;
+            color: $Coolgray;
+            font-family: 'ubuntu-regular';
+            line-height:3;
+            font-size: 1.1em;
+        }
+    }
+    &__input{
+        display: flex;
+        flex-direction: column;
+        gap: 1.3em;
+        &--group{
+            display: flex;
+            flex-direction: column;
+            .input-field{
+                background: $White;
+                border: 1px solid $Lightgray;
+                padding: 1em .7em;
+                border-radius: 10px;
+            }
+        }
+    }
 }
 .combined{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     label{
-
+        color: $Marineblue;
+        font-family: 'ubuntu-medium';
+        font-size: .9em;
+        text-transform: capitalize;
+        padding-bottom: .5em;
     }
     .message {
         .info {
-            color: red;
+            color: $Strawberryred;
         }
     }
 

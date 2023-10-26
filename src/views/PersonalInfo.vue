@@ -2,7 +2,7 @@
   <div class="form">
     <div class="form__details">
       <h1>Personal info</h1>
-      <p>please provide yor name,email address, and phone number</p>
+      <p>Please provide yor name,email address, and phone number</p>
     </div>
     <VForm
     :validation-schema="schema"
@@ -66,7 +66,6 @@
     </VForm>
   </div>
 </template>
-
 <script setup>
 import { Form as VForm, ErrorMessage, Field } from 'vee-validate'
 import * as Yup from 'yup'
