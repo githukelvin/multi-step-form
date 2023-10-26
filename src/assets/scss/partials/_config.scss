@@ -25,22 +25,29 @@ body {
 .inputs {
   display: grid;
 }
-  .form__details {
-    margin-bottom: 2.55em;
+.form__details {
+  margin-bottom: 2.55em;
 
-    h1 {
-      color: $Marineblue;
-      font-family: 'ubuntu-bold';
-      font-size: 2em;
-      margin-bottom: 0.5em;
-      line-height: 1;
-    }
-
-    p {
-      line-height: 1;
-      color: $Coolgray;
-      font-family: 'ubuntu-regular';
-      // line-height:3;
-      font-size: 1.05em;
-    }
+  h1 {
+    color: $Marineblue;
+    font-family: 'ubuntu-bold';
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    line-height: 1;
   }
+
+  p {
+    line-height: 1;
+    color: $Coolgray;
+    font-family: 'ubuntu-regular';
+    // line-height:3;
+    font-size: 1.05em;
+  }
+}
+.top {
+  width: 100%;
+  margin-top: 1.5625em;
+  padding-inline: 5.3em;
+  margin-left: 1em;
+  margin-top: 2.2em;
+}

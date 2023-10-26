@@ -1,11 +1,10 @@
 <template>
   <div class="form">
-    <HeaderIntro 
-    title="Personal info"
-     description="Please provide yor name, email address, and phone number "
-     />
-    <VForm :validation-schema="schema"
-    >
+    <HeaderIntro
+      title="Personal info"
+      description="Please provide yor name, email address, and phone number "
+    />
+    <VForm :validation-schema="schema">
       <div class="form__input">
         <div class="form__input--group">
           <div class="combined">
@@ -68,7 +67,7 @@
 <script setup>
 import { Form as VForm, ErrorMessage, Field } from 'vee-validate'
 import * as Yup from 'yup'
-import HeaderIntro from '../components/HeaderIntro.vue';
+import HeaderIntro from '../components/HeaderIntro.vue'
 const schema = Yup.object().shape({
   name: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Name is required'),
   email: Yup.string().email('Invalid email').required('Email is required'),

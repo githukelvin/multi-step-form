@@ -13,7 +13,6 @@
   margin-left: 1em;
   margin-top: 2.2em;
 
-
   &__input {
     display: flex;
     flex-direction: column;
@@ -28,13 +27,13 @@
         border-radius: 10px;
         width: 97%;
         color: $Marineblue;
-        font-family: "ubuntu-medium";
+        font-family: 'ubuntu-medium';
         &:hover,
         &:focus {
           border: 1px solid $Marineblue;
         }
-        &:invalid{
-            border: 1px solid $Strawberryred;
+        &:invalid {
+          border: 1px solid $Strawberryred;
         }
       }
     }
@@ -58,7 +57,6 @@
       font-family: 'ubuntu-medium';
       //   font-size: 0.9em;
       color: $Strawberryred;
-    
     }
   }
 }
@@ -66,5 +64,5 @@
   font-family: 'ubuntu-medium';
 }
 input.error {
-      border: 1px solid $Strawberryred;
+  border: 1px solid $Strawberryred;
 }

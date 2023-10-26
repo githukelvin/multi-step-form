@@ -2,7 +2,7 @@
 @use '../utils/colors' as *;
 
 .sidebar {
-  background-image: url('../images/bg-sidebar-desktop.svg');
+  background-image: url('./images/bg-sidebar-desktop.svg');
   border-radius: 10px;
   padding: 2em 5.8em 18em 1.9em;
   ul {
