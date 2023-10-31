@@ -18,7 +18,7 @@
             <h1>select plan</h1>
           </div>
         </div>
-      </li>
+      </li> 
       <li>
         <div class="list mod">
           <div class="number" :class="{ active: isRouteActive('add-ons').value }">3</div>

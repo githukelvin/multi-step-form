@@ -5,7 +5,7 @@
       <router-view />
       <div class="btns">
         <button class="back" v-if="showBtn">go back</button>
-        <button class="next">next step</button>
+        <button class="next" :class="{ leftPos: showBtn===false }" >next step</button>
       </div>
     </div>
   </div>
@@ -18,4 +18,5 @@ import { useRoute } from 'vue-router'
 const route = useRoute()
 let pathName = route.name
 let showBtn = pathName === 'info' ? false : true
+console.log(showBtn)
 </script>
