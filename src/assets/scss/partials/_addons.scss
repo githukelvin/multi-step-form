@@ -1,0 +1,13 @@
+@use "../utils/colors" as *;
+
+.rect {
+    border: 1px solid $Lightgray;
+
+  .left {
+    .info {
+    }
+  }
+
+  .right {
+  }
+}

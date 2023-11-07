@@ -8,7 +8,6 @@
 }
 .form {
   width: 100%;
-  margin-top: 1.5625em;
   padding-inline: 5.3em;
   margin-left: 1em;
   margin-top: 2.2em;
@@ -38,6 +37,10 @@
       }
     }
   }
+}
+.width {
+  width: 92%;
+  padding-top: 6em;
 }
 .combined {
   display: flex;

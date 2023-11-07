@@ -3,9 +3,9 @@
     <SideBarMenu />
     <div class="inputs">
       <router-view />
-      <div class="btns">
+      <div class="btns" :class="{ width: showBtn === true }">
         <button class="back" v-if="showBtn">go back</button>
-        <button class="next" :class="{ leftPos: showBtn===false }" >next step</button>
+        <button class="next" :class="{ leftPos: showBtn === false }">next step</button>
       </div>
     </div>
   </div>

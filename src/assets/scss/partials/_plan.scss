@@ -4,17 +4,16 @@
 .box {
   border: 1px solid $Lightgray;
   border-radius: 10px;
-
-  padding: 1em 3em 1em 1em;
+  padding: 1em 2.9em 1em 1em;
+  cursor: pointer;
   &__header {
     display: flex;
     flex-direction: column;
-    gap: 2.9em;
+    gap: 2.8em;
     img {
-      width: 50%;
+      width: 60%;
     }
     .box__details {
-
       h3 {
         font-size: 1em;
         color: $Marineblue;
@@ -22,11 +21,17 @@
         font-family: 'ubuntu-regular';
       }
       p {
-        font-size: .9em;
+        font-size: 0.9em;
         font-weight: 400;
         color: $Coolgray;
         font-family: 'ubuntu-regular';
-        margin-top: .5em;
+        margin-top: 0.5em;
+      }
+      small {
+        font-size: 0.7em;
+        color: $Marineblue;
+        font-family: 'ubuntu-bold';
+        margin-top: 0.5em;
       }
     }
   }
@@ -34,45 +39,79 @@
     border: 1px solid $Marineblue;
   }
 }
+// .second{
+//   margin-left: 5px;
+// }
+// .third {
+//   margin-left: 5px;
+// }
 .plan {
-    width: 100%;
+  padding-inline: 6em;
+  // padding-right: 4.5em;
+  margin-top: 2.2em;
 
   &__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1rem;
+    gap: 1em;
   }
   .column {
     display: flex;
     flex-direction: row;
-    margin-top: 3em;
+    margin-top: 1.9em;
     align-items: center;
     width: 100%;
     gap: 1.5em;
-    p{
-        text-transform: capitalize;
-        font-family: 'ubuntu-medium';
-        font-size: .9em;
-        color: $Coolgray;
+    p {
+      text-transform: capitalize;
+      font-family: 'ubuntu-medium';
+      font-size: 0.9em;
+      color: $Coolgray;
     }
-    input[type="checkbox"]{
-        appearance: none;
-        width: 40px;
-        height: 20px;
-        background: $Marineblue;
-        border-radius: 20px;
-        cursor: pointer;
-        &::before{
-            content: '';
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: $White;
-            transition: 0.3s;
-            margin-top: 3px;
+    .unchecked {
+      color: $Marineblue;
+    }
+    input[type='checkbox'] {
+      appearance: none;
+      width: 40px;
+      height: 20px;
+      background: $Marineblue;
+      border-radius: 20px;
+      cursor: pointer;
+      &::before {
+        content: '';
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: $White;
+        transition: 0.3s;
+        margin-top: 2.5px;
+      }
+
+      &:checked {
+        // background: $Marineblue;
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          background: $White;
+          transition: 0.3s;
+          margin-left: 23px;
         }
+      }
     }
-    
   }
 }
+
+.column {
+  background: rgba($color: $Pastelblue, $alpha: 0.1);
+  border-radius: 10px;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+}
+

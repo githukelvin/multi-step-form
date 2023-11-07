@@ -1,0 +1,31 @@
+[
+  {
+    "addons": {
+      "yearly": {
+        "online": 10,
+        "storage": 20,
+        "profile": 20
+      },
+      "monthly": {
+        "online": 1,
+        "storage": 2,
+        "profile": 2
+      }
+    }
+  },
+  {
+    "plans": {
+      "yearly": {
+        "Arcade": 90,
+        "advanced": 120,
+        "pro": 150,
+        "extra": "2 months free"
+      },
+      "monthly": {
+        "Arcade": 9,
+        "advanced": 12,
+        "pro": 15
+      }
+    }
+  }
+]

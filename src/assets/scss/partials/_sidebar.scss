@@ -4,7 +4,7 @@
 .sidebar {
   background-image: url('./images/bg-sidebar-desktop.svg');
   border-radius: 10px;
-  padding: 2em 5.8em 18em 1.9em;
+  padding: 2em 5.8em 18em 2.15em;
   ul {
     display: flex;
     flex-direction: column;
@@ -64,6 +64,7 @@
   padding-inline: 4em;
   margin-left: 2em;
   padding-top: 5.5em;
+  padding-bottom: 1em;
   position: relative;
   button {
     font-family: 'ubuntu-medium';
@@ -81,7 +82,7 @@
     color: $Alabaster;
     font-size: 1em;
   }
-  .leftPos{
+  .leftPos {
     position: absolute;
     right: 0;
   }
