@@ -1,7 +1,7 @@
 <template>
-  <div class="rect">
+  <div class="rect " :data-index="addOns.dataIndex">
     <div class="left">
-      <input type="checkbox" name="addOn" id="" />
+      <input type="checkbox" class="check " :v-model="addOns.isChecked" name="addOn" id="" />
       <div class="info">
         <h1>{{ addOns.title }}</h1>
         <p>{{ addOns.details }}</p>
@@ -16,18 +16,25 @@
 <script setup>
 // props
 import { defineProps } from 'vue'
-import { string } from 'yup'
 let addOns = defineProps({
   title: {
-    type: string,
+    type: String,
+    required: true
+  },
+  dataIndex: {
+    type: String,
     required: true
   },
   details: {
-    type: string,
+    type: String,
     required: true
   },
   price: {
-    type: string,
+    type: Number,
+    required: true
+  },
+  isChecked: {
+    type: Boolean,
     required: true
   }
 })

@@ -10,10 +10,13 @@
     display: flex;
     flex-direction: column;
     gap: 2.8em;
+    pointer-events: none;
     img {
       width: 60%;
+      pointer-events: none;
     }
     .box__details {
+      pointer-events: none;
       h3 {
         font-size: 1em;
         color: $Marineblue;
@@ -45,6 +48,10 @@
 // .third {
 //   margin-left: 5px;
 // }
+.active{
+    border: 1px solid $Marineblue;
+
+}
 .plan {
   padding-inline: 6em;
   // padding-right: 4.5em;
@@ -106,6 +113,7 @@
     }
   }
 }
+
 
 .column {
   background: rgba($color: $Pastelblue, $alpha: 0.1);

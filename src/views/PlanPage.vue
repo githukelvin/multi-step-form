@@ -6,6 +6,8 @@
     />
     <div class="plan__grid">
       <BoxComp
+      @click="SelectPackage"
+      :data-index="divID.one"
         imagePath="./images/icon-arcade.svg"
         title="arcade"
         :extra="extra"
@@ -14,6 +16,8 @@
         className=""
       />
       <BoxComp
+      @click="SelectPackage"
+      :data-index="divID.two"
         imagePath="./images/icon-advanced.svg"
         title="advanced"
         :extra="extra"
@@ -23,6 +27,8 @@
         className="second"
       />
       <BoxComp
+      @click="SelectPackage"
+      :data-index="divID.three"
         imagePath="./images/icon-pro.svg"
         title="pro"
         :extra="extra"
@@ -49,12 +55,16 @@ import data from '@/data.json'
 import { ref,  computed,watch } from 'vue'
 let plans = data[1].plans
 let priceA
+let selected= ref([])
 let priceAd
 let priceP
 let defaultMode = ref('monthly')
 let isMonthly = ref(true)
-
-
+let divID={
+  "one":"Arcade",
+  "two":"advanced",
+  "three":"pro"
+}
 const dataNew = computed(() => {
   return defaultMode.value === 'monthly' ? plans.monthly : plans.yearly;
 });
@@ -91,6 +101,33 @@ function toggle() {
   
   return extra, isMonthly.value
 
+}
+// let  data = {
+//   "isMonthly": isMonthly.value,
+//   "Package":,
+//   "price":
+
+// }
+let dataSaved = ref(null)
+let SelectPackage= (event)=>{
+  let  data = event.target.getAttribute("data-index");
+  if(selected.value.includes(data)){
+    selected.value.splice(selected.value.indexOf(data),1)
+    event.target.classList.remove('active');
+  }else{
+    event.target.classList.add('active');
+    selected.value.push(event.target.getAttribute("data-index"))
+  }
+  dataSaved.value = {
+    "isMonthly": isMonthly.value,
+    "Package":selected.value,
+
+  }
+
+
+
+  return dataSaved
+  
 }
 
 </script>

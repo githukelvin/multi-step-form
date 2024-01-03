@@ -1,13 +1,75 @@
-@use "../utils/colors" as *;
+@use '../utils/colors' as *;
 
 .rect {
-    border: 1px solid $Lightgray;
-
+  border: 1px solid $Lightgray;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1.1em;
+  align-items: center;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  gap: 4em;
+  &:hover {
+    border: 1px solid $Marineblue;
+  }
   .left {
+    pointer-events: none;
+    display: flex;
+    flex-direction: row;
+    gap: 1.5em;
+    align-items: center;
+    // padding-right: 2.3em;
+    input[type='checkbox'] {
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 1px solid $Lightgray;
+      border-radius: 5px;
+      &.checks {
+        background-color: $Purplishblue;
+        border: 1px solid $Purplishblue;
+        background-image: url('./images/icon-checkmark.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
     .info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4em;
+      h1 {
+        font-size: 0.9em;
+        color: $Marineblue;
+        font-family: 'ubuntu-medium';
+      }
+      p {
+        font-size: 1em;
+        color: $Coolgray;
+        font-family: 'ubuntu-regular';
+      }
     }
   }
 
   .right {
+    margin-left: 2.3em;
+    pointer-events: none;
+    p {
+      font-size: 1em;
+      color: $Purplishblue;
+      font-family: 'ubuntu-medium';
+    }
   }
+}
+.addons {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-bottom: -2em;
+}
+
+.active {
+  border: 1px solid $Marineblue;
+  background-color: $Magnolia;
 }
