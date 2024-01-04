@@ -8,7 +8,7 @@
         title="Online service"
         details="Access to multiplayer games"
         :price="dataAddons.online"
-        :isChecked=isChecked
+        :isChecked="isChecked"
         @click="SelectPackage"
       />
       <Add0nComponent
@@ -16,14 +16,14 @@
         title="larger storage"
         details="Extra 1TB of cloud save"
         :price="dataAddons.storage"
-        :isChecked=isChecked
+        :isChecked="isChecked"
         @click="SelectPackage"
       />
       <Add0nComponent
         dataIndex="profile"
         title="Customizable"
         details="Custom theme on you profile"
-        :isChecked=isChecked
+        :isChecked="isChecked"
         :price="dataAddons.profile"
         @click="SelectPackage"
       />
@@ -53,7 +53,7 @@ if (isMonthly) {
 let SelectPackage = (event) => {
   let data = event.target.getAttribute('data-index')
   if (selected.value.includes(data)) {
-    event.target.querySelector(".check").classList.remove("checks")
+    event.target.querySelector('.check').classList.remove('checks')
     selected.value.splice(selected.value.indexOf(data), 1)
     event.target.classList.remove('active')
     isChecked = true
@@ -61,24 +61,23 @@ let SelectPackage = (event) => {
     event.target.classList.add('active')
     selected.value.push(event.target.getAttribute('data-index'))
     isChecked = true
-    event.target.querySelector(".check").classList.add("checks")
-
+    event.target.querySelector('.check').classList.add('checks')
   }
   dataSaved.value = {
     isMonthly: isMonthly,
     Package: selected.value,
-    prices:prices.value
+    prices: prices.value
   }
-  for (let i = 0;i < selected.value.length;i++){
-    if (selected.value[i] === 'online'){
-      prices.value.push( dataAddons.online)
-    }else if (selected.value[i] === 'storage'){
-      prices.value.push =( dataAddons.storage)
-    }else if (selected.value[i] === 'profile'){
+  for (let i = 0; i < selected.value.length; i++) {
+    if (selected.value[i] === 'online') {
+      prices.value.push(dataAddons.online)
+    } else if (selected.value[i] === 'storage') {
+      prices.value.push = dataAddons.storage
+    } else if (selected.value[i] === 'profile') {
       prices.value.push(dataAddons.profile)
     }
   }
-console.log(dataSaved.value)
+  console.log(dataSaved.value)
   return dataSaved
 }
 </script>

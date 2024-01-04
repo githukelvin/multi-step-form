@@ -48,9 +48,8 @@
 // .third {
 //   margin-left: 5px;
 // }
-.active{
-    border: 1px solid $Marineblue;
-
+.active {
+  border: 1px solid $Marineblue;
 }
 .plan {
   padding-inline: 6em;
@@ -114,7 +113,6 @@
   }
 }
 
-
 .column {
   background: rgba($color: $Pastelblue, $alpha: 0.1);
   border-radius: 10px;
@@ -122,4 +120,3 @@
   display: flex;
   justify-content: center;
 }
-

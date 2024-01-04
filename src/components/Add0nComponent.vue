@@ -1,7 +1,7 @@
 <template>
-  <div class="rect " :data-index="addOns.dataIndex">
+  <div class="rect" :data-index="addOns.dataIndex">
     <div class="left">
-      <input type="checkbox" class="check " :v-model="addOns.isChecked" name="addOn" id="" />
+      <input type="checkbox" class="check" :v-model="addOns.isChecked" name="addOn" id="" />
       <div class="info">
         <h1>{{ addOns.title }}</h1>
         <p>{{ addOns.details }}</p>

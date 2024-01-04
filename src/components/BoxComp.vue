@@ -1,6 +1,6 @@
 import { defineProps } from 'vue';
 <template>
-  <div :data-index="props.data" class="box"  :class="props.className">
+  <div :data-index="props.data" class="box" :class="props.className">
     <div class="box__header">
       <img :src="props.imagePath" :alt="props.title" />
       <div class="box__details">
@@ -20,8 +20,8 @@ const props = defineProps({
   description: String,
   imagePath: String,
   className: String,
-  ismonth:Boolean,
-  extra:String,
-  data:String
+  ismonth: Boolean,
+  extra: String,
+  data: String
 })
 </script>
