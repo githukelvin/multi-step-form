@@ -12,15 +12,50 @@
         bottom: 0px;
         content: "";
         width: 100%;
-        height: 2px;
+        height: 1px;
         background-color: $Lightgray;
     }
        &Details {
-      
+        display: flex;
+        flex-direction: column;
+        h1{
+            font-family: 'ubuntu-regular';
+            font-size: 1em;
+            color: $Marineblue;
+            line-height: 1;
+        }
+        a{
+            font-family: 'ubuntu-regular';
+            text-decoration-line: underline;
+            text-decoration-thickness: 2px;
+            padding-bottom: 1em;
+            color: $Coolgray;
+        }
+       
     }
+     p {
+         font-family: 'ubuntu-bold';
+         color: $Marineblue;
+     }
   }
   .info{
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
     .text{
+        p{
+            color: $Coolgray;
+            font-family: 'ubuntu-regular';
+            font-size: .9em;
+        }
+        h2{
+            color: $Marineblue;
+            font-family: 'ubuntu-regular';
+            font-size: .9em;
+            left: .5px;
+            font-weight: 500;
+        }
       
     }
   }
@@ -32,4 +67,15 @@
 }
 .total{
     padding-inline: 1.5em;
+    margin-top: 1em;
+    .totaldetails{
+        font-family: 'ubuntu-regular';
+        font-size: .9em;
+        color: $Coolgray;
+    }
+    h2{
+        color: $Purplishblue;
+        font-family: 'ubuntu-bold';
+        font-size: 1.3em;
+    }
 }

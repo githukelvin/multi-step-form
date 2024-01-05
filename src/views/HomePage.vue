@@ -3,7 +3,7 @@
     <SideBarMenu />
     <div class="inputs">
       <router-view />
-      <div class="btns" :class="{ width: showBtn === true }">
+      <div class="btns" v-show="isThank" :class="{ width: showBtn === true }">
         <button @click="goBack" class="back" v-if="showBtn">go back</button>
 
         <button v-if="!isSummary" class="next" :class="{ leftPos: showBtn === false }">
@@ -33,7 +33,7 @@ const goBack = () => {
   router.go(-1)
 }
 let isSummary = isRouteActive('summary').value
+let isThank = !isRouteActive('thankyou').value
 let pathName = route.name
 let showBtn = pathName === 'info' ? false : true
-console.log(showBtn)
 </script>
