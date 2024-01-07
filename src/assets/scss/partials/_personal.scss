@@ -50,6 +50,11 @@
 .width {
   width: 92%;
   padding-top: 6em;
+        @include responsivenss(small) {
+          width: 100%;
+          padding-top: 1em;
+        }
+
 }
 .combined {
   display: flex;

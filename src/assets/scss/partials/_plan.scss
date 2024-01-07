@@ -1,19 +1,29 @@
 @use '../utils/colors' as *;
 @use '../utils/font' as *;
+@use "../mixins/responsive" as *;
 
 .box {
   border: 1px solid $Lightgray;
   border-radius: 10px;
   padding: 1em 2.9em 1em 1em;
   cursor: pointer;
+
   &__header {
     display: flex;
     flex-direction: column;
     gap: 2.8em;
     pointer-events: none;
+          @include responsivenss(small) {
+            gap:1em;
+            flex-direction: row;
+          }
+
     img {
       width: 60%;
       pointer-events: none;
+      @include responsivenss(small) {
+        width: 30%;
+      }
     }
     .box__details {
       pointer-events: none;
@@ -55,11 +65,18 @@
   padding-inline: 6em;
   // padding-right: 4.5em;
   margin-top: 2.2em;
+  @include responsivenss(small) {
+    padding-inline: 0;
+    margin-top: 0;
+  }
 
   &__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1em;
+    @include responsivenss (small){
+      grid-template-columns: 1fr;
+    }
   }
   .column {
     display: flex;
