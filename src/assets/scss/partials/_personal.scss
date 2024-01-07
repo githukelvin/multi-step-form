@@ -1,25 +1,34 @@
 @use '../utils/colors' as *;
 @use '../utils/font' as *;
+@use "../mixins/responsive" as *;
 
 .main {
   display: flex;
   flex-direction: row;
   //   gap: 6em;
+  @include responsivenss(small) {
+    flex-direction: column;
+  }
+   
 }
-.form {
+.form{
   width: 100%;
   padding-inline: 5.3em;
   margin-left: 1em;
   margin-top: 2.2em;
+    @include responsivenss(small) {
+      margin: 0;
+      padding: 0;
+    }
 
-  &__input {
+  &__input{
     display: flex;
     flex-direction: column;
     gap: 1.3em;
-    &--group {
+    &--group{
       display: flex;
       flex-direction: column;
-      .input-field {
+      .input-field{
         background: $White;
         border: 1px solid $Lightgray;
         padding: 1em 0.8em;

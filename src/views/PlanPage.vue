@@ -44,20 +44,24 @@
     </div>
   </div>
   <div class="btns" v-show="useAuth.isThank" :class="{ width: useAuth.showBtn === true }">
-      <button  class="back" v-show="useAuth.showBtn">go back</button>
+    <button class="back" v-show="useAuth.showBtn">go back</button>
 
-      <button
-        @click="useAuth.saveDetails()"
-        v-if="!useAuth.isSummary"
-        class="next"
-        :class="{ leftPos: useAuth.showBtn === false }"
-      >
-        next step
-      </button>
-      <button v-else class="next" :class="{ leftPos: useAuth.showBtn === false, color: useAuth.isSummary }">
-        Confirm
-      </button>
-    </div>
+    <button
+      @click="useAuth.saveDetails()"
+      v-if="!useAuth.isSummary"
+      class="next"
+      :class="{ leftPos: useAuth.showBtn === false }"
+    >
+      next step
+    </button>
+    <button
+      v-else
+      class="next"
+      :class="{ leftPos: useAuth.showBtn === false, color: useAuth.isSummary }"
+    >
+      Confirm
+    </button>
+  </div>
 </template>
 
 <script setup>

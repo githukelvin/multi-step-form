@@ -1,14 +1,28 @@
 @use '../utils/font' as *;
 @use '../utils/colors' as *;
+@use "../mixins/responsive" as *;
 
 .sidebar {
   background-image: url('./images/bg-sidebar-desktop.svg');
   border-radius: 10px;
   padding: 2em 5.8em 18em 2.15em;
+    @include responsivenss(small) {
+      background-image: url("images/bg-sidebar-mobile.svg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 0%;
+      padding: 0;
+      // height: 375px;
+    }
   ul {
     display: flex;
     flex-direction: column;
     gap: 1.89em;
+      @include responsivenss(small) {
+        flex-direction: row;
+        justify-content: center;
+        padding: 3em 0 8em 0;
+      }
     li {
       .list {
         display: flex;
@@ -33,6 +47,9 @@
         .listInfo {
           display: flex;
           flex-direction: column;
+            @include responsivenss(small) {
+              display: none;
+            }
           p {
             text-transform: uppercase;
             font-family: 'ubuntu-regular';
@@ -61,11 +78,20 @@
   flex-direction: row;
   justify-content: space-between;
   width: 82%;
-  padding-inline: 4em;
   margin-left: 2em;
-  padding-top: 5.5em;
-  padding-bottom: 1em;
+  padding: 5.5em 4em 1em 4em;
   position: relative;
+  @include responsivenss(small) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 1em;
+    background: $White;
+    margin-top: 4em;
+    width: 100%;
+    margin-left: 0;
+    
+  }
   button {
     font-family: 'ubuntu-medium';
     text-transform: capitalize;
@@ -74,6 +100,10 @@
   .back {
     background: transparent;
     color: $Coolgray;
+    opacity: 0;
+    &.active{
+      opacity: 1;
+    }
   }
   .next {
     background: $Marineblue;
@@ -86,8 +116,10 @@
     background-color: $Purplishblue;
     padding-inline: 2em;
   }
-  .leftPos {
-    position: absolute;
-    right: 0;
-  }
+  // .leftPos {
+  //   position: absolute;
+  //   right: 0;
+    
+   
+  // }
 }

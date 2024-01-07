@@ -64,17 +64,22 @@
     </VForm>
   </div>
   <div class="btns" v-show="useAuth.isThank" :class="{ width: useAuth.showBtn === true }">
-    <button  class="back" v-show="useAuth.showBtn">go back</button>
+     
+      <button class="back"   :class="{ actives: useAuth.showBtn === true }" >go back</button>
 
     <button
-      @click="useAuth.saveDetails(schema,'personal-info')"
+      @click="useAuth.saveDetails(schema, 'personal-info', 'plan')"
       v-if="!useAuth.isSummary"
       class="next"
       :class="{ leftPos: useAuth.showBtn === false }"
     >
       next step
     </button>
-    <button v-else class="next" :class="{ leftPos: useAuth.showBtn === false, color: useAuth.isSummary }">
+    <button
+      v-else
+      class="next"
+      :class="{ leftPos: useAuth.showBtn === false, color: useAuth.isSummary }"
+    >
       Confirm
     </button>
   </div>
