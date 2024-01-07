@@ -1,5 +1,6 @@
 @use '../utils/colors' as *;
 @use '../utils/font' as *;
+@use '../mixins/responsive' as *;
 
 .mainc {
   background-color: $Alabaster;
@@ -140,5 +141,9 @@
     color: $Coolgray;
     padding-inline: 3em;
     font-size: 1.05em;
+    @include responsivenss(small){
+      font-size: 1.2em;
+      padding-inline: 0;
+    }
   }
 }

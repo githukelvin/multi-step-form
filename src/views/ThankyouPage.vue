@@ -32,4 +32,22 @@ import { getAssets } from '@/helpers/getAssets'
 .sidebar {
   width: max-content;
 }
+@media screen and (max-width: 50em) {
+  .thanks{
+    padding-top: 0;
+    width: 100%;
+    margin-inline: 0;
+  }
+  .parent{
+    width: 100%;
+  }
+  .inputs{
+    width: 90%;
+    
+  }
+  .sidebar{
+    width: 100%;
+  }
+}
+
 </style>
