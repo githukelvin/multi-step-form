@@ -29,6 +29,21 @@
       />
     </div>
   </div>
+  <div class="btns" v-show="useAuth.isThank" :class="{ width: useAuth.showBtn === true }">
+      <button  class="back" v-show="useAuth.showBtn">go back</button>
+
+      <button
+        @click="useAuth.saveDetails()"
+        v-if="!useAuth.isSummary"
+        class="next"
+        :class="{ leftPos: useAuth.showBtn === false }"
+      >
+        next step
+      </button>
+      <button v-else class="next" :class="{ leftPos: useAuth.showBtn === false, color: useAuth.isSummary }">
+        Confirm
+      </button>
+    </div>
 </template>
 
 <script setup>
@@ -36,6 +51,9 @@ import HeaderIntro from '@/components/HeaderIntro.vue'
 import Add0nComponent from '@/components/Add0nComponent.vue'
 import data from '@/data.json'
 import { ref } from 'vue'
+import { useAuthStore } from '../stores/data'
+const useAuth = useAuthStore()
+
 let selected = ref([])
 let prices = ref([])
 let dataSaved = ref(null)

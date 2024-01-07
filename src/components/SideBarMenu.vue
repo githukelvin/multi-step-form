@@ -30,7 +30,13 @@
       </li>
       <li>
         <div class="list mod">
-          <div class="number" v-if="!isRouteActive('thankyou').value" :class="{ active: isRouteActive('summary').value }">4</div>
+          <div
+            class="number"
+            v-if="!isRouteActive('thankyou').value"
+            :class="{ active: isRouteActive('summary').value }"
+          >
+            4
+          </div>
           <div class="number" v-else :class="{ active: isRouteActive('thankyou').value }">4</div>
           <div class="listInfo">
             <p>step 4</p>

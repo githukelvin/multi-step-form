@@ -29,9 +29,9 @@ const router = createRouter({
           component: () => import('@/views/SummaryPage.vue')
         },
         {
-          path:'/thankyou',
-          name:'thankyou',
-          component: () => import("@/views/ThankyouPage.vue")
+          path: '/thankyou',
+          name: 'thankyou',
+          component: () => import('@/views/ThankyouPage.vue')
         }
       ]
     }

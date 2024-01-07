@@ -43,6 +43,21 @@
       <p class="checked">yearly</p>
     </div>
   </div>
+  <div class="btns" v-show="useAuth.isThank" :class="{ width: useAuth.showBtn === true }">
+      <button  class="back" v-show="useAuth.showBtn">go back</button>
+
+      <button
+        @click="useAuth.saveDetails()"
+        v-if="!useAuth.isSummary"
+        class="next"
+        :class="{ leftPos: useAuth.showBtn === false }"
+      >
+        next step
+      </button>
+      <button v-else class="next" :class="{ leftPos: useAuth.showBtn === false, color: useAuth.isSummary }">
+        Confirm
+      </button>
+    </div>
 </template>
 
 <script setup>
@@ -50,6 +65,9 @@ import BoxComp from '@/components/BoxComp.vue'
 import HeaderIntro from '@/components/HeaderIntro.vue'
 import data from '@/data.json'
 import { ref, computed, watch } from 'vue'
+import { useAuthStore } from '../stores/data'
+const useAuth = useAuthStore()
+
 let plans = data[1].plans
 let priceA
 let selected = ref([])

@@ -63,10 +63,26 @@
       </div>
     </VForm>
   </div>
+  <div class="btns" v-show="useAuth.isThank" :class="{ width: useAuth.showBtn === true }">
+    <button  class="back" v-show="useAuth.showBtn">go back</button>
+
+    <button
+      @click="useAuth.saveDetails(schema,'personal-info')"
+      v-if="!useAuth.isSummary"
+      class="next"
+      :class="{ leftPos: useAuth.showBtn === false }"
+    >
+      next step
+    </button>
+    <button v-else class="next" :class="{ leftPos: useAuth.showBtn === false, color: useAuth.isSummary }">
+      Confirm
+    </button>
+  </div>
 </template>
 <script setup>
 import { Form as VForm, ErrorMessage, Field } from 'vee-validate'
 import * as Yup from 'yup'
+import { useAuthStore } from '../stores/data'
 import HeaderIntro from '../components/HeaderIntro.vue'
 const schema = Yup.object().shape({
   name: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Name is required'),
@@ -76,5 +92,5 @@ const schema = Yup.object().shape({
     // .max(14, 'Too Long!')
     .required('Phone number is required')
 })
-
+const useAuth = useAuthStore()
 </script>
