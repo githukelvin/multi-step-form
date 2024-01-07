@@ -27,6 +27,9 @@
     }
     .box__details {
       pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      place-content: center;
       h3 {
         font-size: 1em;
         color: $Marineblue;

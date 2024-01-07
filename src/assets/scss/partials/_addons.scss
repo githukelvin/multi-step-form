@@ -1,4 +1,5 @@
 @use '../utils/colors' as *;
+@use "../mixins/responsive" as *;
 
 .rect {
   border: 1px solid $Lightgray;
@@ -11,6 +12,10 @@
   border-radius: 10px;
   cursor: pointer;
   gap: 4em;
+  @include responsivenss(small){
+    gap: 1em;
+    padding: 1em;
+  }
   &:hover {
     border: 1px solid $Marineblue;
   }
@@ -20,6 +25,9 @@
     flex-direction: row;
     gap: 1.5em;
     align-items: center;
+    @include responsivenss(small){
+      gap: .5em;
+    }
     // padding-right: 2.3em;
     input[type='checkbox'] {
       appearance: none;
@@ -27,6 +35,11 @@
       height: 20px;
       border: 1px solid $Lightgray;
       border-radius: 5px;
+            @include responsivenss(small) {
+              width: 30px;
+              height: 30px;
+            }
+
       &.checks {
         background-color: $Purplishblue;
         border: 1px solid $Purplishblue;
@@ -55,6 +68,10 @@
   .right {
     margin-left: 2.3em;
     pointer-events: none;
+          @include responsivenss(small) {
+            margin: 0;
+          }
+
     p {
       font-size: 1em;
       color: $Purplishblue;

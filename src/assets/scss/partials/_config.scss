@@ -78,4 +78,9 @@ body {
   padding-inline: 5.3em;
   margin-left: 1em;
   margin-top: 2.2em;
+  @include responsivenss(small){
+    padding-inline: 0;
+    margin: 0;
+    padding-bottom: 2em;
+  }
 }
