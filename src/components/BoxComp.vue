@@ -15,6 +15,15 @@ import { defineProps } from 'vue';
 <script setup>
 // props
 import { defineProps } from 'vue'
+// let box = document.querySelectorAll(".box")
+// console.log(box)
+// box.forEach(boxed => {
+//   console.log(boxed)
+//   if (boxed.getAttribute('data-index') === 'Arcade') {
+//     boxed.classList.remove("active")
+//   }
+
+// });
 const props = defineProps({
   title: String,
   description: String,

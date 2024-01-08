@@ -71,7 +71,6 @@ import data from '@/data.json'
 import { ref, computed, watch } from 'vue'
 import { useAuthStore } from '../stores/data'
 const useAuth = useAuthStore()
-
 let plans = data[1].plans
 let priceA
 let selected = ref([])
@@ -133,18 +132,30 @@ function toggle() {
 let dataSaved = ref(null)
 let SelectPackage = (event) => {
   let data = event.target.getAttribute('data-index')
-  if (selected.value.includes(data)) {
+  
+ if (selected.value.includes(data)) {
     selected.value.splice(selected.value.indexOf(data), 1)
     event.target.classList.remove('active')
-  } else {
-    event.target.classList.add('active')
+  }
+  else if (selected.value.length >= 1) {
+  //  let removed = selected.value.pop(selected.value[0])
+  
     selected.value.push(event.target.getAttribute('data-index'))
+    event.target.classList.add('active')
+
+  }
+  else {
+    selected.value.push(event.target.getAttribute('data-index'))
+    event.target.classList.add('active')
+
   }
   dataSaved.value = {
     isMonthly: isMonthly.value,
     Package: selected.value
   }
 
+  console.log(dataSaved.value)
   return dataSaved
 }
+
 </script>
