@@ -1,6 +1,6 @@
 import { defineProps } from 'vue';
 <template>
-  <div :data-index="props.data" class="box" :class="props.className">
+  <div :data-index="props.data" :removed="removed" class="box" :class="props.className">
     <div class="box__header">
       <img :src="props.imagePath" :alt="props.title" />
       <div class="box__details">
@@ -15,22 +15,16 @@ import { defineProps } from 'vue';
 <script setup>
 // props
 import { defineProps } from 'vue'
-// let box = document.querySelectorAll(".box")
-// console.log(box)
-// box.forEach(boxed => {
-//   console.log(boxed)
-//   if (boxed.getAttribute('data-index') === 'Arcade') {
-//     boxed.classList.remove("active")
-//   }
-
-// });
 const props = defineProps({
   title: String,
   description: String,
   imagePath: String,
   className: String,
+  removed: String,
   ismonth: Boolean,
   extra: String,
   data: String
 })
+
+
 </script>

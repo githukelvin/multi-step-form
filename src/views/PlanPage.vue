@@ -74,6 +74,7 @@ const useAuth = useAuthStore()
 let plans = data[1].plans
 let priceA
 let selected = ref([])
+let ActiveDivs = ref([])
 let priceAd
 let priceP
 let defaultMode = ref('monthly')
@@ -123,12 +124,7 @@ function toggle() {
 
   return extra, isMonthly.value
 }
-// let  data = {
-//   "isMonthly": isMonthly.value,
-//   "Package":,
-//   "price":
 
-// }
 let dataSaved = ref(null)
 let SelectPackage = (event) => {
   let data = event.target.getAttribute('data-index')
@@ -138,15 +134,20 @@ let SelectPackage = (event) => {
     event.target.classList.remove('active')
   }
   else if (selected.value.length >= 1) {
-  //  let removed = selected.value.pop(selected.value[0])
-  
+  selected.value.pop(selected.value[0])
     selected.value.push(event.target.getAttribute('data-index'))
+    ActiveDivs.value.push(event.target)
     event.target.classList.add('active')
+    ActiveDivs.value[0].classList.remove('active')
+    ActiveDivs.value.splice(0, 1)
 
   }
   else {
     selected.value.push(event.target.getAttribute('data-index'))
     event.target.classList.add('active')
+    ActiveDivs.value.push(event.target)
+    //  ActiveDivs.value[0].classList.remove('active')
+    // ActiveDivs.value.splice(0, 1)
 
   }
   dataSaved.value = {
@@ -154,7 +155,6 @@ let SelectPackage = (event) => {
     Package: selected.value
   }
 
-  console.log(dataSaved.value)
   return dataSaved
 }
 
