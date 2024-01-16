@@ -84,15 +84,15 @@ body {
 }
 @font-face {
   font-family: 'Ubuntu-Bold';
-  src: url('../assets/fonts/Ubuntu-Bold.ttf');
+  src: url('../fonts/Ubuntu-Bold.ttf');
 }
 @font-face {
   font-family: 'Ubuntu-Regular';
-  src: url('../assets/fonts/Ubuntu-Regular.ttf');
+  src: url('../fonts/Ubuntu-Regular.ttf');
 }
 @font-face {
   font-family: 'ubuntu-medium';
-  src: url('../assets/fonts/Ubuntu-Medium.ttf');
+  src: url('../fonts/Ubuntu-Medium.ttf');
 }
 .sidebar {
   background-image: url('../images/bg-sidebar-desktop.svg');
