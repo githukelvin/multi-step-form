@@ -84,7 +84,7 @@
     </button>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import { Form as VForm, ErrorMessage, Field } from 'vee-validate'
 import * as Yup from 'yup'
 import { useAuthStore } from '../stores/data'

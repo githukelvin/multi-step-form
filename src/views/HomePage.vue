@@ -7,6 +7,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup >
 import SideBarMenu from '@/components/SideBarMenu.vue'
+
 </script>
