@@ -141,7 +141,7 @@
     color: $Coolgray;
     padding-inline: 3em;
     font-size: 1.05em;
-    @include responsivenss(small){
+    @include responsivenss(small) {
       font-size: 1.2em;
       padding-inline: 0;
     }

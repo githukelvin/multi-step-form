@@ -33,21 +33,19 @@ import { getAssets } from '@/helpers/getAssets'
   width: max-content;
 }
 @media screen and (max-width: 50em) {
-  .thanks{
+  .thanks {
     padding-top: 0;
     width: 100%;
     margin-inline: 0;
   }
-  .parent{
+  .parent {
     width: 100%;
   }
-  .inputs{
+  .inputs {
     width: 90%;
-    
   }
-  .sidebar{
+  .sidebar {
     width: 100%;
   }
 }
-
 </style>

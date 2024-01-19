@@ -1,6 +1,6 @@
 @use '../utils/colors' as *;
 @use '../utils/font' as *;
-@use "../mixins/responsive" as *;
+@use '../mixins/responsive' as *;
 
 .box {
   border: 1px solid $Lightgray;
@@ -13,10 +13,10 @@
     flex-direction: column;
     gap: 2.8em;
     pointer-events: none;
-          @include responsivenss(small) {
-            gap:1em;
-            flex-direction: row;
-          }
+    @include responsivenss(small) {
+      gap: 1em;
+      flex-direction: row;
+    }
 
     img {
       width: 60%;
@@ -77,7 +77,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1em;
-    @include responsivenss (small){
+    @include responsivenss(small) {
       grid-template-columns: 1fr;
     }
   }

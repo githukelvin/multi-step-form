@@ -1,7 +1,14 @@
+import { User } from './data'
 import { ref } from 'vue'
-import { defineStore } from 'pinia'
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { defineStore } from 'pinia'
+
+// export interface User {
+//   name: string
+//   email: string
+//   phone: number
+// }
 
 export const useAuthStore = defineStore('auth', () => {
   let personalDetails = ref({})
@@ -13,12 +20,16 @@ export const useAuthStore = defineStore('auth', () => {
   let isThank = !isRouteActive('thankyou').value
   let pathName = route.name
   let showBtn = pathName === 'info' ? false : true
+  // const user = ref<User>({} as User)
+
   function saveDetails(credentials, detail, nextroute) {
+    console.log(credentials)
+
     localStorage.setItem(detail, credentials)
-    console.log(credentials.value)
-    if (!localStorage.getItem(detail).length < 1) {
-      isSummary = isRouteActive('summary')
-      isThank = isRouteActive('thankyou')
+    if (localStorage.getItem(detail).length > 1) {
+      // Fix: Update the condition to check if the length is greater than 1
+      isSummary = isRouteActive('summary').value // Fix: Assign the value of the computed property
+      isThank = isRouteActive('thankyou').value // Fix: Assign the value of the computed property
       router.push(nextroute)
     }
   }
@@ -37,6 +48,7 @@ export const useAuthStore = defineStore('auth', () => {
     isSummary,
     isThank,
     pathName,
-    showBtn
+    showBtn,
+    user
   }
 })

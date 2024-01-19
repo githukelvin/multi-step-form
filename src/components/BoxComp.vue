@@ -25,6 +25,4 @@ const props = defineProps({
   extra: String,
   data: String
 })
-
-
 </script>

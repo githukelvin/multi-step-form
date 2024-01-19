@@ -45,7 +45,7 @@
   </div>
   <div class="btns" v-show="useAuth.isThank" :class="{ width: useAuth.showBtn === true }">
     <!-- <button class="back" v-show="useAuth.showBtn">go back</button> -->
-  <button class="back"   :class="{ actives: useAuth.showBtn === true }" >go back</button>
+    <button class="back" :class="{ actives: useAuth.showBtn === true }">go back</button>
     <button
       @click="useAuth.saveDetails()"
       v-if="!useAuth.isSummary"
@@ -128,27 +128,23 @@ function toggle() {
 let dataSaved = ref(null)
 let SelectPackage = (event) => {
   let data = event.target.getAttribute('data-index')
-  
- if (selected.value.includes(data)) {
+
+  if (selected.value.includes(data)) {
     selected.value.splice(selected.value.indexOf(data), 1)
     event.target.classList.remove('active')
-  }
-  else if (selected.value.length >= 1) {
-  selected.value.pop(selected.value[0])
+  } else if (selected.value.length >= 1) {
+    selected.value.pop(selected.value[0])
     selected.value.push(event.target.getAttribute('data-index'))
     ActiveDivs.value.push(event.target)
     event.target.classList.add('active')
     ActiveDivs.value[0].classList.remove('active')
     ActiveDivs.value.splice(0, 1)
-
-  }
-  else {
+  } else {
     selected.value.push(event.target.getAttribute('data-index'))
     event.target.classList.add('active')
     ActiveDivs.value.push(event.target)
     //  ActiveDivs.value[0].classList.remove('active')
     // ActiveDivs.value.splice(0, 1)
-
   }
   dataSaved.value = {
     isMonthly: isMonthly.value,
@@ -157,5 +153,4 @@ let SelectPackage = (event) => {
 
   return dataSaved
 }
-
 </script>
