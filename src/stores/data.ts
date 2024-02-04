@@ -1,14 +1,12 @@
-import { User } from './data'
-import { ref } from 'vue'
-import { computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { defineStore } from 'pinia'
+import { computed ,ref} from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import { defineStore } from 'pinia';
 
-// export interface User {
-//   name: string
-//   email: string
-//   phone: number
-// }
+export interface User {
+  name: string
+  email: string
+  phone: number
+}
 
 export const useAuthStore = defineStore('auth', () => {
   let personalDetails = ref({})
@@ -20,7 +18,7 @@ export const useAuthStore = defineStore('auth', () => {
   let isThank = !isRouteActive('thankyou').value
   let pathName = route.name
   let showBtn = pathName === 'info' ? false : true
-  // const user = ref<User>({} as User)
+  const user = ref<User>({} as User)
 
   function saveDetails(credentials, detail, nextroute) {
     console.log(credentials)

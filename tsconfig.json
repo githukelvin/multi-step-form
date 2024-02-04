@@ -5,6 +5,11 @@
     "moduleresolution": "node",
     "importhelpers": true,
     "isolatedmodules": true,
-    "noemit": true
+    "noemit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   }
+  
 }
