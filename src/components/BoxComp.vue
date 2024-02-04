@@ -14,15 +14,15 @@ import { defineProps } from 'vue';
 
 <script setup>
 // props
-import { defineProps } from 'vue'
+import { defineProps } from "vue"
 const props = defineProps({
-  title: String,
-  description: String,
-  imagePath: String,
-  className: String,
-  removed: String,
-  ismonth: Boolean,
-  extra: String,
-  data: String
+	title: String,
+	description: String,
+	imagePath: String,
+	className: String,
+	removed: String,
+	ismonth: Boolean,
+	extra: String,
+	data: String
 })
 </script>

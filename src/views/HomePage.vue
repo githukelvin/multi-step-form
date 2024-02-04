@@ -8,5 +8,5 @@
 </template>
 
 <script setup>
-import SideBarMenu from '@/components/SideBarMenu.vue'
+import SideBarMenu from "@/components/SideBarMenu.vue"
 </script>

@@ -15,28 +15,28 @@
 
 <script setup>
 // props
-import { defineProps } from 'vue'
+import { defineProps } from "vue"
 let addOns = defineProps({
-  title: {
-    type: String,
-    required: true
-  },
-  dataIndex: {
-    type: String,
-    required: true
-  },
-  details: {
-    type: String,
-    required: true
-  },
-  price: {
-    type: Number,
-    required: true
-  },
-  isChecked: {
-    type: Boolean,
-    required: true
-  }
+	title: {
+		type: String,
+		required: true
+	},
+	dataIndex: {
+		type: String,
+		required: true
+	},
+	details: {
+		type: String,
+		required: true
+	},
+	price: {
+		type: Number,
+		required: true
+	},
+	isChecked: {
+		type: Boolean,
+		required: true
+	}
 })
 </script>
 

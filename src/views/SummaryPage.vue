@@ -32,7 +32,6 @@
     <!-- <button class="back" v-show="useAuth.showBtn">go back</button> -->
     <button class="back" :class="{ actives: useAuth.showBtn === true }">go back</button>
     <button
-      @click="useAuth.saveDetails()"
       v-if="!useAuth.isSummary"
       class="next"
       :class="{ leftPos: useAuth.showBtn === false }"
@@ -49,8 +48,8 @@
   </div>
 </template>
 
-<script setup>
-import HeaderIntro from '@/components/HeaderIntro.vue'
-import { useAuthStore } from '../stores/data'
+<script setup  lang='ts'>
+import HeaderIntro from "../components/HeaderIntro.vue"
+import { useAuthStore } from "../stores/auth"
 const useAuth = useAuthStore()
 </script>

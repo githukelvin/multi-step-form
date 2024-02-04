@@ -4,7 +4,7 @@
       title="Personal info"
       description="Please provide yor name, email address, and phone number "
     />
-    <VForm :validation-schema="schema">
+    <VForm :validation-schema="userSchema">
       <div class="form__input">
         <div class="form__input--group">
           <div class="combined">
@@ -17,6 +17,7 @@
             </div>
           </div>
           <Field
+          v-model.lazy="Uname"
             type="text"
             placeholder="e.g stephen king"
             name="name"
@@ -35,6 +36,7 @@
             </div>
           </div>
           <Field
+          v-model.lazy="email"
             type="email"
             placeholder="e.g stephenking@lorem.com"
             name="email"
@@ -53,6 +55,7 @@
             </div>
           </div>
           <Field
+          v-model.lazy="phone"
             type="text"
             placeholder="e.g +1 234 567 890"
             name="phone"
@@ -67,9 +70,10 @@
     <button class="back" :class="{ actives: useAuth.showBtn === true }">go back</button>
 
     <button
-      @click="useAuth.saveDetails(schema, 'personal-info', 'plan')"
+      @click="ClickToDisplay"
       v-if="!useAuth.isSummary"
       class="next"
+      type="submit"
       :class="{ leftPos: useAuth.showBtn === false }"
     >
       next step
@@ -84,18 +88,38 @@
   </div>
 </template>
 <script setup lang="ts">
-import { Form as VForm, ErrorMessage, Field } from 'vee-validate'
-import * as Yup from 'yup'
-import { useAuthStore } from '../stores/data'
-import HeaderIntro from '../components/HeaderIntro.vue'
-const schema = Yup.object().shape({
-  name: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Name is required'),
-  email: Yup.string().email('Invalid email').required('Email is required'),
-  phone: Yup.number()
-    .min(10, 'Too Short!')
-    // .max(14, 'Too Long!')
-    .required('Phone number is required')
+import { Form as VForm, ErrorMessage, Field } from "vee-validate"
+import * as Yup from "yup"
+import { useAuthStore,type User } from "../stores/auth"
+import HeaderIntro from "../components/HeaderIntro.vue"
+const userSchema = Yup.object().shape({
+	name: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required("Name is required"),
+	email: Yup.string().email("Invalid email").required("Email is required"),
+	phone: Yup.number()
+		.min(10, "Too Short!")
+	// .max(14, 'Too Long!')
+		.required("Phone number is required")
 })
 const useAuth = useAuthStore()
+
+// get data from schema  yup object
+const Uname = defineModel()
+const email = defineModel()
+const phone = defineModel()
+
+// parse and assert validity
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const user = {
+	name:Uname.value,
+	email:email.value,
+	phone:phone.value
+} as User
+
+function ClickToDisplay(){
+	console.log(user)
+}
+
+
+
 
 </script>

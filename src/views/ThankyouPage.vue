@@ -12,8 +12,8 @@
   </div>
 </template>
 
-<script setup>
-import { getAssets } from '@/helpers/getAssets'
+<script setup  lang="ts">
+import { getAssets } from "../helpers/getAssets"
 </script>
 <style lang="scss">
 .thanks {

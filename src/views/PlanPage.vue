@@ -64,12 +64,12 @@
   </div>
 </template>
 
-<script setup>
-import BoxComp from '@/components/BoxComp.vue'
-import HeaderIntro from '@/components/HeaderIntro.vue'
-import data from '@/data.json'
-import { ref, computed, watch } from 'vue'
-import { useAuthStore } from '../stores/data'
+<script setup  lang='ts'>
+import BoxComp from "../components/BoxComp.vue"
+import HeaderIntro from "../components/HeaderIntro.vue"
+import data from "../data.json"
+import { ref, computed, watch } from "vue"
+import { useAuthStore } from "../stores/auth"
 const useAuth = useAuthStore()
 let plans = data[1].plans
 let priceA
@@ -77,80 +77,80 @@ let selected = ref([])
 let ActiveDivs = ref([])
 let priceAd
 let priceP
-let defaultMode = ref('monthly')
+let defaultMode = ref("monthly")
 let isMonthly = ref(true)
 let divID = {
-  one: 'Arcade',
-  two: 'advanced',
-  three: 'pro'
+	one: "Arcade",
+	two: "advanced",
+	three: "pro"
 }
 const dataNew = computed(() => {
-  return defaultMode.value === 'monthly' ? plans.monthly : plans.yearly
+	return defaultMode.value === "monthly" ? plans.monthly : plans.yearly
 })
 
 priceA = `$${dataNew.value.Arcade}/mo`
 priceAd = `$${dataNew.value.advanced}/mo`
 priceP = `$${dataNew.value.pro}/mo`
 
-let extra
+let extra 
 
 // // Watch for changes in defaultMode and update dataNew
 
 watch(
-  defaultMode,
-  (newMode) => {
-    // if newmode is equal to  monthyl  make ismonthly true
-    if (newMode === 'monthly') {
-      isMonthly.value = true
-    } else {
-      isMonthly.value = false
-      extra = dataNew.value.extra
-    }
-    // No need to set isMonthly here; it's handled by the computed property
-  },
-  { immediate: true, flush: 'pre' }
+	defaultMode,
+	(newMode) => {
+		// if newmode is equal to  monthyl  make ismonthly true
+		if (newMode === "monthly") {
+			isMonthly.value = true
+		} else {
+			isMonthly.value = false
+			extra = dataNew.value.extra
+		}
+		// No need to set isMonthly here; it's handled by the computed property
+	},
+	{ immediate: true, flush: "pre" }
 )
 
 function toggle() {
-  if (isMonthly.value) {
-    defaultMode.value = 'yearly'
-  } else {
-    defaultMode.value = 'monthly'
-  }
+	if (isMonthly.value) {
+		defaultMode.value = "yearly"
+	} else {
+		defaultMode.value = "monthly"
+	}
 
-  priceA = `$${dataNew.value.Arcade}/mo`
-  priceAd = `$${dataNew.value.advanced}/mo`
-  priceP = `$${dataNew.value.pro}/mo`
+	priceA = `$${dataNew.value.Arcade}/mo`
+	priceAd = `$${dataNew.value.advanced}/mo`
+	priceP = `$${dataNew.value.pro}/mo`
 
-  return extra, isMonthly.value
+	return extra
 }
 
 let dataSaved = ref(null)
 let SelectPackage = (event) => {
-  let data = event.target.getAttribute('data-index')
+	let data = event.target.getAttribute("data-index")
 
-  if (selected.value.includes(data)) {
-    selected.value.splice(selected.value.indexOf(data), 1)
-    event.target.classList.remove('active')
-  } else if (selected.value.length >= 1) {
-    selected.value.pop(selected.value[0])
-    selected.value.push(event.target.getAttribute('data-index'))
-    ActiveDivs.value.push(event.target)
-    event.target.classList.add('active')
-    ActiveDivs.value[0].classList.remove('active')
-    ActiveDivs.value.splice(0, 1)
-  } else {
-    selected.value.push(event.target.getAttribute('data-index'))
-    event.target.classList.add('active')
-    ActiveDivs.value.push(event.target)
-    //  ActiveDivs.value[0].classList.remove('active')
-    // ActiveDivs.value.splice(0, 1)
-  }
-  dataSaved.value = {
-    isMonthly: isMonthly.value,
-    Package: selected.value
-  }
+	if (selected.value.includes(data)) {
+		selected.value.splice(selected.value.indexOf(data), 1)
+		event.target.classList.remove("active")
+	} else if (selected.value.length >= 1) {
+		selected.value.shift()
+		selected.value.push(event.target.getAttribute("data-index"))
+		ActiveDivs.value.push(event.target)
+		event.target.classList.add("active")
+		ActiveDivs.value[0].classList.remove("active")
+		ActiveDivs.value.shift()
+	} else {
+		selected.value.push(event.target.getAttribute("data-index"))
+		event.target.classList.add("active")
+		ActiveDivs.value.push(event.target)
+		//  ActiveDivs.value[0].classList.remove('active')
+		// ActiveDivs.value.splice(0, 1)
+	}
+	dataSaved.value = {
+		isMonthly: isMonthly.value,
+		Package: selected.value
+	}
 
-  return dataSaved
+	return dataSaved
 }
 </script>

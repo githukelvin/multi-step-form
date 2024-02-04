@@ -52,11 +52,11 @@
 </template>
 
 <script setup>
-import HeaderIntro from '@/components/HeaderIntro.vue'
-import Add0nComponent from '@/components/Add0nComponent.vue'
-import data from '@/data.json'
-import { ref } from 'vue'
-import { useAuthStore } from '../stores/data'
+import HeaderIntro from "@/components/HeaderIntro.vue"
+import Add0nComponent from "@/components/Add0nComponent.vue"
+import data from "@/data.json"
+import { ref } from "vue"
+import { useAuthStore } from "../stores/auth"
 const useAuth = useAuthStore()
 
 let selected = ref([])
@@ -67,40 +67,40 @@ let addOns = data[0].addons
 let dataAddons
 let isChecked = false
 if (isMonthly) {
-  dataAddons = addOns.monthly
+	dataAddons = addOns.monthly
 } else {
-  dataAddons = addOns.yearly
+	dataAddons = addOns.yearly
 }
 // console.log(dataAddons)
 
 let SelectPackage = (event) => {
-  let data = event.target.getAttribute('data-index')
-  if (selected.value.includes(data)) {
-    event.target.querySelector('.check').classList.remove('checks')
-    selected.value.splice(selected.value.indexOf(data), 1)
-    event.target.classList.remove('active')
-    isChecked = true
-  } else {
-    event.target.classList.add('active')
-    selected.value.push(event.target.getAttribute('data-index'))
-    isChecked = true
-    event.target.querySelector('.check').classList.add('checks')
-  }
-  dataSaved.value = {
-    isMonthly: isMonthly,
-    Package: selected.value,
-    prices: prices.value
-  }
-  for (let i = 0; i < selected.value.length; i++) {
-    if (selected.value[i] === 'online') {
-      prices.value.push(dataAddons.online)
-    } else if (selected.value[i] === 'storage') {
-      prices.value.push = dataAddons.storage
-    } else if (selected.value[i] === 'profile') {
-      prices.value.push(dataAddons.profile)
-    }
-  }
-  console.log(dataSaved.value)
-  return dataSaved
+	let data = event.target.getAttribute("data-index")
+	if (selected.value.includes(data)) {
+		event.target.querySelector(".check").classList.remove("checks")
+		selected.value.splice(selected.value.indexOf(data), 1)
+		event.target.classList.remove("active")
+		isChecked = true
+	} else {
+		event.target.classList.add("active")
+		selected.value.push(event.target.getAttribute("data-index"))
+		isChecked = true
+		event.target.querySelector(".check").classList.add("checks")
+	}
+	dataSaved.value = {
+		isMonthly: isMonthly,
+		Package: selected.value,
+		prices: prices.value
+	}
+	for (let i = 0; i < selected.value.length; i++) {
+		if (selected.value[i] === "online") {
+			prices.value.push(dataAddons.online)
+		} else if (selected.value[i] === "storage") {
+			prices.value.push = dataAddons.storage
+		} else if (selected.value[i] === "profile") {
+			prices.value.push(dataAddons.profile)
+		}
+	}
+	console.log(dataSaved.value)
+	return dataSaved
 }
 </script>
