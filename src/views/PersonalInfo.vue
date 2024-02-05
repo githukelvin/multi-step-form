@@ -4,7 +4,8 @@
       title="Personal info"
       description="Please provide yor name, email address, and phone number "
     />
-    <VForm :validation-schema="userSchema">
+    <VForm :validation-schema="userSchema"
+    >
       <div class="form__input">
         <div class="form__input--group">
           <div class="combined">
@@ -70,8 +71,8 @@
     <button class="back" :class="{ actives: useAuth.showBtn === true }">go back</button>
 
     <button
-      @click="ClickToDisplay"
       v-if="!useAuth.isSummary"
+      @click="createUser"
       class="next"
       type="submit"
       :class="{ leftPos: useAuth.showBtn === false }"
@@ -88,10 +89,14 @@
   </div>
 </template>
 <script setup lang="ts">
+// import {ref} from "vue"
 import { Form as VForm, ErrorMessage, Field } from "vee-validate"
 import * as Yup from "yup"
 import { useAuthStore,type User } from "../stores/auth"
 import HeaderIntro from "../components/HeaderIntro.vue"
+import Swal from "sweetalert2/dist/sweetalert2.js"
+import { useRouter } from "vue-router"
+
 const userSchema = Yup.object().shape({
 	name: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required("Name is required"),
 	email: Yup.string().email("Invalid email").required("Email is required"),
@@ -101,24 +106,53 @@ const userSchema = Yup.object().shape({
 		.required("Phone number is required")
 })
 const useAuth = useAuthStore()
-
+const router = useRouter()
 // get data from schema  yup object
-const Uname = defineModel()
-const email = defineModel()
-const phone = defineModel()
+const Uname = defineModel("uname")
+const email = defineModel("email")
+const phone = defineModel("phone")
 
-// parse and assert validity
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const user = {
-	name:Uname.value,
-	email:email.value,
-	phone:phone.value
-} as User
 
-function ClickToDisplay(){
-	console.log(user)
+
+async function createUser() {
+	const unameValue = await Uname.value
+	const emailValue = await email.value
+	const phoneValue = await phone.value
+
+	const user = { name: unameValue, email: emailValue, phone: phoneValue } as  User
+	userSchema.validate(user)
+		.then(() => {
+			Swal.fire({
+				text: "You have successfully Entered  in details!",
+				icon: "success",
+				buttonsStyling: false,
+				confirmButtonText: "Ok, got it!",
+				heightAuto: false,
+				customClass: {
+					confirmButton: "btn fw-semobold btn-light-primary",
+				},
+			}).then(() => {
+				// router.push({ name: "plan" })
+			})
+		})
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+		.catch((err) => {
+			// useAuth.validUser = false
+			Swal.fire({
+				text: "Fields cannot be empty",
+				icon: "error",
+				buttonsStyling: false,
+				confirmButtonText: "Try again!",
+				heightAuto: false,
+				customClass: {
+					confirmButton: "btn fw-semobold btn-light-danger",
+				},
+			}).then(() => {
+				// store.errors = {}
+			})
+		})
+	return user
 }
-
 
 
 
