@@ -18,11 +18,7 @@
         "vue"
     ],
     "rules": {
-        "indent": [
-            "error",
-            "tab"
-        ],
-        "linebreak-style": [
+            "linebreak-style": [
             "error",
             "windows"
         ],

@@ -47,7 +47,7 @@
     <!-- <button class="back" v-show="useAuth.showBtn">go back</button> -->
     <button class="back" :class="{ actives: useAuth.showBtn === true }">go back</button>
     <button
-      @click="useAuth.saveDetails()"
+      @click="createPackage"
       v-if="!useAuth.isSummary"
       class="next"
       :class="{ leftPos: useAuth.showBtn === false }"
@@ -70,6 +70,8 @@ import HeaderIntro from "../components/HeaderIntro.vue"
 import data from "../data.json"
 import { ref, computed, watch } from "vue"
 import { useAuthStore } from "../stores/auth"
+import Swal from "sweetalert2/dist/sweetalert2.js"
+
 const useAuth = useAuthStore()
 let plans = data[1].plans
 let priceA
@@ -104,7 +106,7 @@ watch(
 			isMonthly.value = true
 		} else {
 			isMonthly.value = false
-			extra = dataNew.value.extra
+			extra = dataNew.value
 		}
 		// No need to set isMonthly here; it's handled by the computed property
 	},
@@ -112,18 +114,18 @@ watch(
 )
 
 function toggle() {
-	if (isMonthly.value) {
-		defaultMode.value = "yearly"
-	} else {
-		defaultMode.value = "monthly"
-	}
+	defaultMode.value = isMonthly.value ? "yearly" : "monthly"
+	ActiveDivs.value[0].classList.remove("active")
+	ActiveDivs.value.length = 0
+	selected.value.length =0
 
+	// Assuming dataNew is defined and initialized correctly
 	priceA = `$${dataNew.value.Arcade}/mo`
 	priceAd = `$${dataNew.value.advanced}/mo`
 	priceP = `$${dataNew.value.pro}/mo`
-
-	return extra
+	return extra 
 }
+
 
 let dataSaved = ref(null)
 let SelectPackage = (event) => {
@@ -150,7 +152,70 @@ let SelectPackage = (event) => {
 		isMonthly: isMonthly.value,
 		Package: selected.value
 	}
-
 	return dataSaved
+}
+// get data  then  push to local storage
+// async function createPackage(){
+// 	const dataS = await dataSaved.value
+//   console.log(dataS)
+//   if(dataS == null){
+//     Swal.fire({
+//       text: "Select a package to continue!",
+//       icon: "error",
+//       buttonsStyling: false,
+//       confirmButtonText: "Try again!",
+//       heightAuto: false,
+//       customClass: {
+//         confirmButton: "alert  btn-light-danger",
+//       },
+//     })
+//   }  
+//   else{
+//   if (dataS.isMonthly){
+//    let priceM = data[1].plans.monthly[dataS.Package]
+//     let AllPlans = {...dataS,priceM}
+//     console.log(AllPlans)
+//     // useAuth.saveDetails(JSON.stringify(dataS),"plan","summary")
+//   }
+//   else{
+//     let priceM = data[1].plans.yearly[dataS.Package]
+//       let AllPlans = { ...dataS, priceM }
+//       console.log(AllPlans)
+//     // useAuth.saveDetails(JSON.stringify(dataS),"plan","summary")
+//   }
+
+//   }
+
+// }
+async function createPackage() {
+  const dataS = await dataSaved.value
+  console.log(dataS)
+
+  if (dataS == null) {
+    Swal.fire({
+      text: "Select a package to continue!",
+      icon: "error",
+      buttonsStyling: false,
+      confirmButtonText: "Try again!",
+      heightAuto: false,
+      customClass: {
+        confirmButton: "alert  btn-light-danger",
+      },
+    })
+  } else {
+    const priceM = data[1].plans[dataS.isMonthly ? "monthly" : "yearly"][dataS.Package]
+    const AllPlans = { ...dataS, priceM }
+    useAuth.saveDetails(JSON.stringify(AllPlans),"plan","add-ons")
+    Swal.fire({
+      text: `You Have Selected Plan ${dataS.Package}`,
+      icon: "success",
+      buttonsStyling: false,
+      confirmButtonText: "Ok, got it!",
+      heightAuto: false,
+      customClass: {
+        confirmButton: "alert  btn-light-primary",
+      },
+    })
+  }
 }
 </script>

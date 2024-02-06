@@ -95,7 +95,6 @@ import * as Yup from "yup"
 import { useAuthStore,type User } from "../stores/auth"
 import HeaderIntro from "../components/HeaderIntro.vue"
 import Swal from "sweetalert2/dist/sweetalert2.js"
-import { useRouter } from "vue-router"
 
 const userSchema = Yup.object().shape({
 	name: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required("Name is required"),
@@ -106,7 +105,6 @@ const userSchema = Yup.object().shape({
 		.required("Phone number is required")
 })
 const useAuth = useAuthStore()
-const router = useRouter()
 // get data from schema  yup object
 const Uname = defineModel("uname")
 const email = defineModel("email")
@@ -122,6 +120,7 @@ async function createUser() {
 	const user = { name: unameValue, email: emailValue, phone: phoneValue } as  User
 	userSchema.validate(user)
 		.then(() => {
+			useAuth.saveDetails(JSON.stringify(user),"personal","plan")
 			Swal.fire({
 				text: "You have successfully Entered  in details!",
 				icon: "success",

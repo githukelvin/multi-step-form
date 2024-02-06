@@ -21,7 +21,6 @@ export const useAuthStore = defineStore("auth", () => {
 	const user = ref<User>({} as User)
 
 	function saveDetails(credentials, detail, nextroute) {
-		console.log(credentials)
 
 		localStorage.setItem(detail, credentials)
 		if (localStorage.getItem(detail).length > 1) {
