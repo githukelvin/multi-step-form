@@ -54,9 +54,9 @@ import { useRoute } from "vue-router"
 const route = useRoute() // Get the current route
 
 const isRouteActive = (routeName) => {
-	return computed(() => {
-		return route.name === routeName // Check if the path matches the route name
-	})
+  return computed(() => {
+    return route.name === routeName // Check if the path matches the route name
+  })
 }
 console.log(isRouteActive("info").value)
 </script>

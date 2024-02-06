@@ -83,10 +83,10 @@ body {
 }
 // Popup
 .swal2-popup {
-	background-color: var($Marineblue);
-	padding: 2rem;
+  background-color: var($Marineblue);
+  padding: 2rem;
   border-radius: 30px;
-.alert{
+  .alert {
     padding: 1em;
     border-radius: 20px;
     background: $Lightblue;
@@ -94,32 +94,31 @@ body {
     cursor: pointer;
     font-family: 'ubuntu-medium';
   }
-.btn-light-primary{
-  background: #085708;
-  color: #fff;
+  .btn-light-primary {
+    background: #085708;
+    color: #fff;
+  }
+  .btn-light-danger {
+    background: #b40000;
+    color: #fff;
+  }
+  // Container
+  .swal2-container {
+    overflow-y: hidden !important;
 
-}
-.btn-light-danger{
-  background: #b40000;
-  color: #fff;
-}
-// Container
-.swal2-container {
-	overflow-y: hidden !important;
+    &.swal2-shown {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
 
-	&.swal2-shown {
-		background-color: rgba(0,0,0, 0.2);
-	}
+    // Content
+    .swal2-html-container {
+      max-height: 200px;
 
-	// Content
-	.swal2-html-container {
-		max-height: 200px;
-    
-		overflow: auto;
-	}
-}
+      overflow: auto;
+    }
+  }
 
-body.swal2-height-auto {
-	height: 100% !important;
-}
+  body.swal2-height-auto {
+    height: 100% !important;
+  }
 }

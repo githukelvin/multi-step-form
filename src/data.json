@@ -2,14 +2,14 @@
   {
     "addons": {
       "yearly": {
-        "online": 10,
-        "storage": 20,
-        "profile": 20
+        "online": { "price": 10, "text": "Online service" },
+        "storage": { "price": 20, "text": "Larger storage" },
+        "profile": { "price": 20, "text": "Customizable Profile" }
       },
       "monthly": {
-        "online": 1,
-        "storage": 2,
-        "profile": 2
+        "online": { "price": 1, "text": "Online service" },
+        "storage": { "price": 2, "text": "Larger storage" },
+        "profile": { "price": 2, "text": "Customizable Profile" }
       }
     }
   },

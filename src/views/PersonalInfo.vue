@@ -4,8 +4,7 @@
       title="Personal info"
       description="Please provide yor name, email address, and phone number "
     />
-    <VForm :validation-schema="userSchema"
-    >
+    <VForm :validation-schema="userSchema">
       <div class="form__input">
         <div class="form__input--group">
           <div class="combined">
@@ -18,7 +17,7 @@
             </div>
           </div>
           <Field
-          v-model.lazy="Uname"
+            v-model.lazy="Uname"
             type="text"
             placeholder="e.g stephen king"
             name="name"
@@ -37,7 +36,7 @@
             </div>
           </div>
           <Field
-          v-model.lazy="email"
+            v-model.lazy="email"
             type="email"
             placeholder="e.g stephenking@lorem.com"
             name="email"
@@ -56,7 +55,7 @@
             </div>
           </div>
           <Field
-          v-model.lazy="phone"
+            v-model.lazy="phone"
             type="text"
             placeholder="e.g +1 234 567 890"
             name="phone"
@@ -92,17 +91,17 @@
 // import {ref} from "vue"
 import { Form as VForm, ErrorMessage, Field } from "vee-validate"
 import * as Yup from "yup"
-import { useAuthStore,type User } from "../stores/auth"
+import { useAuthStore, type User } from "../stores/auth"
 import HeaderIntro from "../components/HeaderIntro.vue"
 import Swal from "sweetalert2/dist/sweetalert2.js"
 
 const userSchema = Yup.object().shape({
-	name: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required("Name is required"),
-	email: Yup.string().email("Invalid email").required("Email is required"),
-	phone: Yup.number()
-		.min(10, "Too Short!")
-	// .max(14, 'Too Long!')
-		.required("Phone number is required")
+  name: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required("Name is required"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
+  phone: Yup.number()
+    .min(10, "Too Short!")
+    // .max(14, 'Too Long!')
+    .required("Phone number is required")
 })
 const useAuth = useAuthStore()
 // get data from schema  yup object
@@ -110,49 +109,45 @@ const Uname = defineModel("uname")
 const email = defineModel("email")
 const phone = defineModel("phone")
 
-
-
 async function createUser() {
-	const unameValue = await Uname.value
-	const emailValue = await email.value
-	const phoneValue = await phone.value
+  const unameValue = await Uname.value
+  const emailValue = await email.value
+  const phoneValue = await phone.value
 
-	const user = { name: unameValue, email: emailValue, phone: phoneValue } as  User
-	userSchema.validate(user)
-		.then(() => {
-			useAuth.saveDetails(JSON.stringify(user),"personal","plan")
-			Swal.fire({
-				text: "You have successfully Entered  in details!",
-				icon: "success",
-				buttonsStyling: false,
-				confirmButtonText: "Ok, got it!",
-				heightAuto: false,
-				customClass: {
-					confirmButton: "alert  btn-light-primary",
-				},
-			}).then(() => {
-				// router.push({ name: "plan" })
-			})
-		})
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		.catch((err) => {
-			// useAuth.validUser = false
-			Swal.fire({
-				text: "Fields cannot be empty",
-				icon: "error",
-				buttonsStyling: false,
-				confirmButtonText: "Try again!",
-				heightAuto: false,
-				customClass: {
-					confirmButton: "alert  btn-light-danger",
-				},
-			}).then(() => {
-				// store.errors = {}
-			})
-		})
-	return user
+  const user = { name: unameValue, email: emailValue, phone: phoneValue } as User
+  userSchema
+    .validate(user)
+    .then(() => {
+      useAuth.saveDetails(JSON.stringify(user), "personal", "plan")
+      Swal.fire({
+        text: "You have successfully Entered  in details!",
+        icon: "success",
+        buttonsStyling: false,
+        confirmButtonText: "Ok, got it!",
+        heightAuto: false,
+        customClass: {
+          confirmButton: "alert  btn-light-primary"
+        }
+      }).then(() => {
+        // router.push({ name: "plan" })
+      })
+    })
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    .catch((err) => {
+      // useAuth.validUser = false
+      Swal.fire({
+        text: "Fields cannot be empty",
+        icon: "error",
+        buttonsStyling: false,
+        confirmButtonText: "Try again!",
+        heightAuto: false,
+        customClass: {
+          confirmButton: "alert  btn-light-danger"
+        }
+      }).then(() => {
+        // store.errors = {}
+      })
+    })
+  return user
 }
-
-
-
 </script>

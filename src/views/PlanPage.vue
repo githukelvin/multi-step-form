@@ -64,7 +64,7 @@
   </div>
 </template>
 
-<script setup  lang='ts'>
+<script setup lang="ts">
 import BoxComp from "../components/BoxComp.vue"
 import HeaderIntro from "../components/HeaderIntro.vue"
 import data from "../data.json"
@@ -82,77 +82,76 @@ let priceP
 let defaultMode = ref("monthly")
 let isMonthly = ref(true)
 let divID = {
-	one: "Arcade",
-	two: "advanced",
-	three: "pro"
+  one: "Arcade",
+  two: "advanced",
+  three: "pro"
 }
 const dataNew = computed(() => {
-	return defaultMode.value === "monthly" ? plans.monthly : plans.yearly
+  return defaultMode.value === "monthly" ? plans.monthly : plans.yearly
 })
 
 priceA = `$${dataNew.value.Arcade}/mo`
 priceAd = `$${dataNew.value.advanced}/mo`
 priceP = `$${dataNew.value.pro}/mo`
 
-let extra 
+let extra
 
 // // Watch for changes in defaultMode and update dataNew
 
 watch(
-	defaultMode,
-	(newMode) => {
-		// if newmode is equal to  monthyl  make ismonthly true
-		if (newMode === "monthly") {
-			isMonthly.value = true
-		} else {
-			isMonthly.value = false
-			extra = dataNew.value
-		}
-		// No need to set isMonthly here; it's handled by the computed property
-	},
-	{ immediate: true, flush: "pre" }
+  defaultMode,
+  (newMode) => {
+    // if newmode is equal to  monthyl  make ismonthly true
+    if (newMode === "monthly") {
+      isMonthly.value = true
+    } else {
+      isMonthly.value = false
+      extra = dataNew.value.extra
+    }
+    // No need to set isMonthly here; it's handled by the computed property
+  },
+  { immediate: true, flush: "pre" }
 )
 
 function toggle() {
-	defaultMode.value = isMonthly.value ? "yearly" : "monthly"
-	ActiveDivs.value[0].classList.remove("active")
-	ActiveDivs.value.length = 0
-	selected.value.length =0
+  defaultMode.value = isMonthly.value ? "yearly" : "monthly"
+  ActiveDivs.value[0].classList.remove("active")
+  ActiveDivs.value.length = 0
+  selected.value.length = 0
 
-	// Assuming dataNew is defined and initialized correctly
-	priceA = `$${dataNew.value.Arcade}/mo`
-	priceAd = `$${dataNew.value.advanced}/mo`
-	priceP = `$${dataNew.value.pro}/mo`
-	return extra 
+  // Assuming dataNew is defined and initialized correctly
+  priceA = `$${dataNew.value.Arcade}/mo`
+  priceAd = `$${dataNew.value.advanced}/mo`
+  priceP = `$${dataNew.value.pro}/mo`
+  return extra
 }
-
 
 let dataSaved = ref(null)
 let SelectPackage = (event) => {
-	let data = event.target.getAttribute("data-index")
+  let data = event.target.getAttribute("data-index")
 
-	if (selected.value.includes(data)) {
-		selected.value.splice(selected.value.indexOf(data), 1)
-		event.target.classList.remove("active")
-	} else if (selected.value.length >= 1) {
-		selected.value.shift()
-		selected.value.push(event.target.getAttribute("data-index"))
-		ActiveDivs.value.push(event.target)
-		event.target.classList.add("active")
-		ActiveDivs.value[0].classList.remove("active")
-		ActiveDivs.value.shift()
-	} else {
-		selected.value.push(event.target.getAttribute("data-index"))
-		event.target.classList.add("active")
-		ActiveDivs.value.push(event.target)
-		//  ActiveDivs.value[0].classList.remove('active')
-		// ActiveDivs.value.splice(0, 1)
-	}
-	dataSaved.value = {
-		isMonthly: isMonthly.value,
-		Package: selected.value
-	}
-	return dataSaved
+  if (selected.value.includes(data)) {
+    selected.value.splice(selected.value.indexOf(data), 1)
+    event.target.classList.remove("active")
+  } else if (selected.value.length >= 1) {
+    selected.value.shift()
+    selected.value.push(event.target.getAttribute("data-index"))
+    ActiveDivs.value.push(event.target)
+    event.target.classList.add("active")
+    ActiveDivs.value[0].classList.remove("active")
+    ActiveDivs.value.shift()
+  } else {
+    selected.value.push(event.target.getAttribute("data-index"))
+    event.target.classList.add("active")
+    ActiveDivs.value.push(event.target)
+    //  ActiveDivs.value[0].classList.remove('active')
+    // ActiveDivs.value.splice(0, 1)
+  }
+  dataSaved.value = {
+    isMonthly: isMonthly.value,
+    Package: selected.value
+  }
+  return dataSaved
 }
 // get data  then  push to local storage
 // async function createPackage(){
@@ -169,7 +168,7 @@ let SelectPackage = (event) => {
 //         confirmButton: "alert  btn-light-danger",
 //       },
 //     })
-//   }  
+//   }
 //   else{
 //   if (dataS.isMonthly){
 //    let priceM = data[1].plans.monthly[dataS.Package]
@@ -190,7 +189,7 @@ let SelectPackage = (event) => {
 async function createPackage() {
   const dataS = await dataSaved.value
   console.log(dataS)
-
+  useAuth.isMonthly = isMonthly
   if (dataS == null) {
     Swal.fire({
       text: "Select a package to continue!",
@@ -199,13 +198,13 @@ async function createPackage() {
       confirmButtonText: "Try again!",
       heightAuto: false,
       customClass: {
-        confirmButton: "alert  btn-light-danger",
-      },
+        confirmButton: "alert  btn-light-danger"
+      }
     })
   } else {
     const priceM = data[1].plans[dataS.isMonthly ? "monthly" : "yearly"][dataS.Package]
     const AllPlans = { ...dataS, priceM }
-    useAuth.saveDetails(JSON.stringify(AllPlans),"plan","add-ons")
+    useAuth.saveDetails(JSON.stringify(AllPlans), "plan", "add-ons")
     Swal.fire({
       text: `You Have Selected Plan ${dataS.Package}`,
       icon: "success",
@@ -213,8 +212,8 @@ async function createPackage() {
       confirmButtonText: "Ok, got it!",
       heightAuto: false,
       customClass: {
-        confirmButton: "alert  btn-light-primary",
-      },
+        confirmButton: "alert  btn-light-primary"
+      }
     })
   }
 }

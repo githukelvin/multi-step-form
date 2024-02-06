@@ -540,6 +540,7 @@ input.error {
   font-size: 1em;
   color: #02295a;
   line-height: 1;
+  text-transform: capitalize;
 }
 .mainc .packageDetails a {
   font-family: 'ubuntu-regular';
