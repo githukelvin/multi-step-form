@@ -108,6 +108,7 @@ async function createAddons() {
     }
   }
   const addons = await dataSaved.value
+  useAuth.isSummary = true
   if (addons == null) {
     Swal.fire({
       text: "Pick an Add-On to continue!",
