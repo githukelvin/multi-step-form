@@ -72,7 +72,6 @@ if (isMonthly) {
 } else {
   dataAddons = addOns.yearly
 }
-// console.log(dataAddons)
 
 let SelectPackage = (event) => {
   let data = event.target.getAttribute("data-index")
@@ -108,9 +107,7 @@ async function createAddons() {
       prices.value.push(addonPrices[addon])
     }
   }
-  console.log(dataSaved.value)
   const addons = await dataSaved.value
-  console.log(addons)
   if (addons == null) {
     Swal.fire({
       text: "Pick an Add-On to continue!",

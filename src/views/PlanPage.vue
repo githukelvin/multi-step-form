@@ -153,42 +153,9 @@ let SelectPackage = (event) => {
   }
   return dataSaved
 }
-// get data  then  push to local storage
-// async function createPackage(){
-// 	const dataS = await dataSaved.value
-//   console.log(dataS)
-//   if(dataS == null){
-//     Swal.fire({
-//       text: "Select a package to continue!",
-//       icon: "error",
-//       buttonsStyling: false,
-//       confirmButtonText: "Try again!",
-//       heightAuto: false,
-//       customClass: {
-//         confirmButton: "alert  btn-light-danger",
-//       },
-//     })
-//   }
-//   else{
-//   if (dataS.isMonthly){
-//    let priceM = data[1].plans.monthly[dataS.Package]
-//     let AllPlans = {...dataS,priceM}
-//     console.log(AllPlans)
-//     // useAuth.saveDetails(JSON.stringify(dataS),"plan","summary")
-//   }
-//   else{
-//     let priceM = data[1].plans.yearly[dataS.Package]
-//       let AllPlans = { ...dataS, priceM }
-//       console.log(AllPlans)
-//     // useAuth.saveDetails(JSON.stringify(dataS),"plan","summary")
-//   }
 
-//   }
-
-// }
 async function createPackage() {
   const dataS = await dataSaved.value
-  console.log(dataS)
   useAuth.isMonthly = isMonthly
   if (dataS == null) {
     Swal.fire({

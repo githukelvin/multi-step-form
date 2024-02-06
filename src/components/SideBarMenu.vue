@@ -58,7 +58,6 @@ const isRouteActive = (routeName) => {
     return route.name === routeName // Check if the path matches the route name
   })
 }
-console.log(isRouteActive("info").value)
 </script>
 
 <!-- <style lang="scss" scoped></style> -->
