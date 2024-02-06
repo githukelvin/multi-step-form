@@ -128,7 +128,7 @@ async function createUser() {
         text: "You have successfully Entered  in details!",
         icon: "success",
         buttonsStyling: false,
-        confirmButtonText: "Ok, got it!",
+        confirmButtonText: "STEP 2",
         heightAuto: false,
         customClass: {
           confirmButton: "alert  btn-light-primary"

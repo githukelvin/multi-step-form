@@ -123,10 +123,10 @@ async function createAddons() {
   } else {
     useAuth.saveDetails(JSON.stringify(addons), "addons", "summary")
     Swal.fire({
-      text: "You have successfully Entered  in details!",
+      text: "You have successfully Picked Add Ons",
       icon: "success",
       buttonsStyling: false,
-      confirmButtonText: "Ok, got it!",
+      confirmButtonText: "STEP 5",
       heightAuto: false,
       customClass: {
         confirmButton: "alert  btn-light-primary"

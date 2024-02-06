@@ -64,7 +64,7 @@ async function ConfirmSales() {
     text: "Hurray You Have Confirmed everything",
     icon: "success",
     buttonsStyling: false,
-    confirmButtonText: "Ok, got it!",
+    confirmButtonText: "FINISH!",
     heightAuto: false,
     customClass: {
       confirmButton: "alert  btn-light-primary"

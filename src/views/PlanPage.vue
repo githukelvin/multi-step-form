@@ -177,7 +177,7 @@ async function createPackage() {
       text: `You Have Selected Plan ${dataS.Package}`,
       icon: "success",
       buttonsStyling: false,
-      confirmButtonText: "Ok, got it!",
+      confirmButtonText: "STEP 3!",
       heightAuto: false,
       customClass: {
         confirmButton: "alert  btn-light-primary"
