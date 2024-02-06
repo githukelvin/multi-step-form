@@ -16,6 +16,7 @@ body {
   display: grid;
   place-content: center;
   height: 100dvh;
+  position: relative;
   @include responsivenss(small) {
     display: flex;
     flex-direction: column;
@@ -80,6 +81,45 @@ body {
     padding-bottom: 2em;
   }
 }
-.btn{
-  
+// Popup
+.swal2-popup {
+	background-color: var($Marineblue);
+	padding: 2rem;
+  border-radius: 30px;
+.alert{
+    padding: 1em;
+    border-radius: 20px;
+    background: $Lightblue;
+    color: $Purplishblue;
+    cursor: pointer;
+    font-family: 'ubuntu-medium';
+  }
+.btn-light-primary{
+  background: #085708;
+  color: #fff;
+
+}
+.btn-light-danger{
+  background: #b40000;
+  color: #fff;
+}
+// Container
+.swal2-container {
+	overflow-y: hidden !important;
+
+	&.swal2-shown {
+		background-color: rgba(0,0,0, 0.2);
+	}
+
+	// Content
+	.swal2-html-container {
+		max-height: 200px;
+    
+		overflow: auto;
+	}
+}
+
+body.swal2-height-auto {
+	height: 100% !important;
+}
 }

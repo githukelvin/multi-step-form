@@ -1,6 +1,8 @@
+import "./assets/styles/main.css"
+import "sweetalert2/src/sweetalert2.scss"
+
 import { createApp } from "vue"
 import { createPinia } from "pinia"
-
 import App from "./App.vue"
 import router from "./router"
 

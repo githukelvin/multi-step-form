@@ -129,7 +129,7 @@ async function createUser() {
 				confirmButtonText: "Ok, got it!",
 				heightAuto: false,
 				customClass: {
-					confirmButton: "btn fw-semobold btn-light-primary",
+					confirmButton: "alert  btn-light-primary",
 				},
 			}).then(() => {
 				// router.push({ name: "plan" })
@@ -145,7 +145,7 @@ async function createUser() {
 				confirmButtonText: "Try again!",
 				heightAuto: false,
 				customClass: {
-					confirmButton: "btn fw-semobold btn-light-danger",
+					confirmButton: "alert  btn-light-danger",
 				},
 			}).then(() => {
 				// store.errors = {}
