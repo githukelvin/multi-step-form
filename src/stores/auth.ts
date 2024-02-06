@@ -34,6 +34,9 @@ export const useAuthStore = defineStore("auth", () => {
 			return route.name === routeName // Check if the path matches the route name
 		})
 	}
+	function goBack(){
+		router.go(-1)
+	}
 
 	return {
 		saveDetails,
@@ -42,7 +45,8 @@ export const useAuthStore = defineStore("auth", () => {
 		isThank,
 		pathName,
 		showBtn,
-		user
+		user,
+		goBack
 	}
 	
 })

@@ -81,6 +81,7 @@
     <button
       v-else
       class="next"
+      @click="useAuth.goBack"
       :class="{ leftPos: useAuth.showBtn === false, color: useAuth.isSummary }"
     >
       Confirm
@@ -94,6 +95,8 @@ import * as Yup from "yup"
 import { useAuthStore, type User } from "../stores/auth"
 import HeaderIntro from "../components/HeaderIntro.vue"
 import Swal from "sweetalert2/dist/sweetalert2.js"
+import { useRoute } from "vue-router"
+const route = useRoute()
 
 const userSchema = Yup.object().shape({
   name: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required("Name is required"),
@@ -113,6 +116,8 @@ async function createUser() {
   const unameValue = await Uname.value
   const emailValue = await email.value
   const phoneValue = await phone.value
+  const pathName = route.name
+  useAuth.showBtn = pathName === "info" ? false : true
 
   const user = { name: unameValue, email: emailValue, phone: phoneValue } as User
   userSchema

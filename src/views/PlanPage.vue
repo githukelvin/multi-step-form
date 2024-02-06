@@ -56,6 +56,7 @@
     </button>
     <button
       v-else
+      @click="useAuth.goBack"
       class="next"
       :class="{ leftPos: useAuth.showBtn === false, color: useAuth.isSummary }"
     >

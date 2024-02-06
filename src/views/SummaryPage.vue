@@ -26,7 +26,7 @@
   </div>
   <div class="btns" v-show="useAuth.isThank" :class="{ width: useAuth.showBtn === true }">
     <!-- <button class="back" v-show="useAuth.showBtn">go back</button> -->
-    <button class="back" :class="{ actives: useAuth.showBtn === true }">go back</button>
+    <button @click="useAuth.goBack" class="back" :class="{ actives: useAuth.showBtn === true }">go back</button>
     <button v-if="!useAuth.isSummary" class="next" :class="{ leftPos: useAuth.showBtn === false }">
       next step
     </button>
